@@ -88,16 +88,16 @@ function Hero() {
         <p className="mt-6 animate-fade-up font-mono text-sm text-accent2">
           Hi, I&apos;m Brijesh Rathod
         </p>
-        <h1 className="mt-4 max-w-3xl animate-fade-up text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
+        <h1 className="mt-4 max-w-3xl animate-fade-up text-4xl font-bold leading-tight tracking-tight text-fg sm:text-5xl md:text-6xl">
           I build <span className="gradient-text">AI systems</span>, Robotics
           tooling, and production web platforms.
         </h1>
         <p className="mt-6 max-w-2xl animate-fade-up text-lg leading-relaxed text-muted">
           Automation Team Lead &amp; Senior Software Automation Engineer at{" "}
-          <span className="font-medium text-gray-200">Dell Technologies</span>.
+          <span className="font-medium text-body">Dell Technologies</span>.
           I work across LLM evaluation &amp; safety, robot-arm kinematics, and
           security-first full-stack products — focused on the hard part:{" "}
-          <span className="font-medium text-gray-200">
+          <span className="font-medium text-body">
             making systems reliably good, testable, and production-ready.
           </span>
         </p>
@@ -110,14 +110,14 @@ function Hero() {
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-accent2"
+            className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-fg transition-colors hover:border-accent2"
           >
             <MailIcon className="h-4 w-4" /> Get in touch
           </a>
           <a
             href={CV_PATH}
             download
-            className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-accent"
+            className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-fg transition-colors hover:border-accent"
           >
             Download CV
           </a>
@@ -126,7 +126,7 @@ function Hero() {
         <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6">
           {stats.map((s) => (
             <div key={s.label}>
-              <dt className="text-2xl font-bold text-white">{s.value}</dt>
+              <dt className="text-2xl font-bold text-fg">{s.value}</dt>
               <dd className="mt-1 text-xs text-muted">{s.label}</dd>
             </div>
           ))}
@@ -136,7 +136,7 @@ function Hero() {
           {skills.map((s) => (
             <span
               key={s}
-              className="rounded-full border border-line bg-surface px-3 py-1 text-xs text-gray-400"
+              className="rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted"
             >
               {s}
             </span>
@@ -155,7 +155,7 @@ function Services() {
         <Reveal>
           <div className="max-w-2xl">
             <Eyebrow>How I can help</Eyebrow>
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-fg sm:text-3xl">
               What I bring to clients
             </h2>
             <p className="mt-3 text-muted">
@@ -173,7 +173,10 @@ function Services() {
               <Reveal key={s.title} delay={i * 90}>
                 <div className="group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface2 hover:shadow-[0_20px_60px_-25px_rgba(124,92,255,0.5)]">
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <span className="absolute right-6 top-6 font-mono text-sm font-semibold text-line transition-colors group-hover:text-accent/70">
+                  <span
+                    aria-hidden="true"
+                    className="absolute right-6 top-6 font-mono text-sm font-semibold text-muted transition-colors group-hover:text-accent"
+                  >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="flex items-center gap-4">
@@ -181,7 +184,7 @@ function Services() {
                       <Icon className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">{s.title}</h3>
+                      <h3 className="text-lg font-semibold text-fg">{s.title}</h3>
                       <p className="mt-0.5 text-sm font-medium text-accent2">
                         {s.outcome}
                       </p>
@@ -190,7 +193,7 @@ function Services() {
                   <p className="mt-4 text-sm leading-relaxed text-muted">{s.pitch}</p>
                   <ul className="mt-5 grid gap-2.5">
                     {s.points.map((p) => (
-                      <li key={p} className="flex items-start gap-2.5 text-sm text-gray-300">
+                      <li key={p} className="flex items-start gap-2.5 text-sm text-body">
                         <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                         <span>{p}</span>
                       </li>
@@ -215,7 +218,7 @@ function Services() {
                   <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-line bg-base font-mono text-sm font-semibold text-accent2 lg:mx-0">
                     {i + 1}
                   </div>
-                  <h4 className="mt-4 text-sm font-semibold text-white">
+                  <h4 className="mt-4 text-sm font-semibold text-fg">
                     {step.title}
                   </h4>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted">
@@ -237,7 +240,7 @@ function Services() {
           <div className="mt-14 flex flex-col items-center gap-6 rounded-2xl border border-line bg-surface/60 px-6 py-8 text-center">
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
               {valueProps.map((v) => (
-                <span key={v} className="inline-flex items-center gap-2 text-sm text-gray-300">
+                <span key={v} className="inline-flex items-center gap-2 text-sm text-body">
                   <CheckIcon className="h-4 w-4 text-accent2" /> {v}
                 </span>
               ))}
@@ -277,7 +280,7 @@ export default function Home() {
               <Reveal>
                 <div className="max-w-2xl">
                   <Eyebrow>{cat.label}</Eyebrow>
-                  <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                  <h2 className="mt-4 text-2xl font-bold tracking-tight text-fg sm:text-3xl">
                     {cat.label}
                   </h2>
                   <p className="mt-3 text-muted">{cat.blurb}</p>
@@ -303,7 +306,7 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
                   <LockIcon className="h-3.5 w-3.5" /> Private &amp; client work
                 </div>
-                <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                <h2 className="mt-4 text-2xl font-bold tracking-tight text-fg sm:text-3xl">
                   Selected Private Work
                 </h2>
                 <p className="mt-3 text-muted">
@@ -316,7 +319,7 @@ export default function Home() {
               {privateWork.map((w, i) => (
                 <Reveal key={w.title} delay={i * 90}>
                   <div className="h-full rounded-2xl border border-dashed border-line bg-surface/60 p-6">
-                    <div className="flex items-center gap-2 text-white">
+                    <div className="flex items-center gap-2 text-fg">
                       <LockIcon className="h-4 w-4 text-muted" />
                       <h3 className="text-lg font-semibold">{w.title}</h3>
                     </div>
@@ -327,7 +330,7 @@ export default function Home() {
                       {w.tech.map((t) => (
                         <span
                           key={t}
-                          className="rounded-md border border-line bg-base px-2 py-1 text-xs text-gray-400"
+                          className="rounded-md border border-line bg-base px-2 py-1 text-xs text-muted"
                         >
                           {t}
                         </span>
@@ -349,7 +352,7 @@ export default function Home() {
                 <div className="pointer-events-none absolute left-1/2 top-[-40%] h-[320px] w-[520px] -translate-x-1/2 rounded-full bg-accent/20 blur-[130px]" />
                 <div className="relative text-center">
                   <Eyebrow>Contact</Eyebrow>
-                  <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight text-fg sm:text-4xl">
                     Let&apos;s build something reliable.
                   </h2>
                   <p className="mx-auto mt-4 max-w-xl text-muted">
@@ -370,13 +373,13 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 text-sm text-muted sm:flex-row">
           <p>© {new Date().getFullYear()} Brijesh Rathod</p>
           <div className="flex items-center gap-4">
-            <a href={`mailto:${EMAIL}`} aria-label="Email" className="transition-colors hover:text-white">
+            <a href={`mailto:${EMAIL}`} aria-label="Email" className="transition-colors hover:text-fg">
               <MailIcon className="h-5 w-5" />
             </a>
-            <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-white">
+            <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-fg">
               <LinkedInIcon className="h-5 w-5" />
             </a>
-            <a href={GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="transition-colors hover:text-white">
+            <a href={GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="transition-colors hover:text-fg">
               <GitHubIcon className="h-5 w-5" />
             </a>
           </div>

@@ -31,12 +31,12 @@ export function EngagementTypes() {
             <span className="font-mono text-xs uppercase tracking-wider text-accent2">
               {e.format}
             </span>
-            <h4 className="mt-3 text-lg font-semibold text-white">{e.label}</h4>
+            <h4 className="mt-3 text-lg font-semibold text-fg">{e.label}</h4>
             <p className="mt-1 text-sm font-medium text-accent2">{e.tagline}</p>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
               {e.description}
             </p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-white transition-colors group-hover:text-accent2">
+            <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-fg transition-colors group-hover:text-accent2">
               Start this <ArrowIcon className="h-3.5 w-3.5" />
             </span>
           </a>

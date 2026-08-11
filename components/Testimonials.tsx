@@ -20,7 +20,7 @@ export function Testimonials() {
         <Reveal>
           <div className="max-w-2xl">
             <Eyebrow>Kind words</Eyebrow>
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-fg sm:text-3xl">
               What people say
             </h2>
           </div>
@@ -29,11 +29,11 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 80}>
               <figure className="h-full rounded-2xl border border-line bg-surface p-6">
-                <blockquote className="text-sm leading-relaxed text-gray-200">
+                <blockquote className="text-sm leading-relaxed text-body">
                   “{t.quote}”
                 </blockquote>
                 <figcaption className="mt-4 border-t border-line/60 pt-4">
-                  <p className="text-sm font-semibold text-white">{t.name}</p>
+                  <p className="text-sm font-semibold text-fg">{t.name}</p>
                   <p className="text-xs text-muted">{t.role}</p>
                 </figcaption>
               </figure>

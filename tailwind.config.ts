@@ -6,16 +6,19 @@ const config: Config = {
     "./components/**/*.{ts,tsx}",
     "./data/**/*.{ts,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        base: "#0a0a0f",
-        surface: "#12121a",
-        surface2: "#1a1a26",
-        line: "#26263a",
-        muted: "#a8a8c2",
-        accent: "#7c5cff",
-        accent2: "#22d3ee",
+        base: "rgb(var(--c-base) / <alpha-value>)",
+        surface: "rgb(var(--c-surface) / <alpha-value>)",
+        surface2: "rgb(var(--c-surface2) / <alpha-value>)",
+        line: "rgb(var(--c-line) / <alpha-value>)",
+        fg: "rgb(var(--c-fg) / <alpha-value>)",
+        body: "rgb(var(--c-body) / <alpha-value>)",
+        muted: "rgb(var(--c-muted) / <alpha-value>)",
+        accent: "rgb(var(--c-accent) / <alpha-value>)",
+        accent2: "rgb(var(--c-accent2) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],

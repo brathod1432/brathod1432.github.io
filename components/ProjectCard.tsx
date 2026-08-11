@@ -10,7 +10,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <h3 className="text-lg font-semibold tracking-tight text-white">
+            <h3 className="text-lg font-semibold tracking-tight text-fg">
               {project.title}
             </h3>
             {project.featured && (
@@ -27,7 +27,7 @@ export function ProjectCard({ project }: { project: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Open ${project.title} on GitHub`}
-            className="shrink-0 rounded-full border border-line p-2 text-muted transition-colors hover:border-accent hover:text-white"
+            className="shrink-0 rounded-full border border-line p-2 text-muted transition-colors hover:border-accent hover:text-fg"
           >
             <GitHubIcon className="h-4 w-4" />
           </a>
@@ -40,7 +40,7 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <ul className="mt-4 space-y-1.5">
         {project.highlights.map((h) => (
-          <li key={h} className="flex gap-2 text-sm text-gray-300">
+          <li key={h} className="flex gap-2 text-sm text-body">
             <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
             <span>{h}</span>
           </li>
@@ -51,7 +51,7 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.tech.map((t) => (
           <span
             key={t}
-            className="rounded-md border border-line bg-base px-2 py-1 text-xs font-medium text-gray-400"
+            className="rounded-md border border-line bg-base px-2 py-1 text-xs font-medium text-muted"
           >
             {t}
           </span>

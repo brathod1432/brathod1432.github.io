@@ -1,5 +1,6 @@
 import { metrics, caseStudies } from "@/data/projects";
 import { Reveal } from "@/components/Reveal";
+import { CountUp } from "@/components/CountUp";
 import { CheckIcon } from "@/components/icons";
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -22,7 +23,7 @@ export function Impact() {
         <Reveal>
           <div className="max-w-2xl">
             <Eyebrow>Impact</Eyebrow>
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-fg sm:text-3xl">
               Results, not just repositories
             </h2>
             <p className="mt-3 text-muted">
@@ -37,9 +38,10 @@ export function Impact() {
           {metrics.map((m, i) => (
             <Reveal key={m.label} delay={i * 70}>
               <div className="rounded-2xl border border-line bg-surface p-6 text-center transition-colors hover:border-accent/40">
-                <div className="gradient-text text-2xl font-extrabold sm:text-3xl">
-                  {m.value}
-                </div>
+                <CountUp
+                  value={m.value}
+                  className="gradient-text block text-2xl font-extrabold sm:text-3xl"
+                />
                 <div className="mt-2 text-xs leading-snug text-muted">
                   {m.label}
                 </div>
@@ -58,7 +60,7 @@ export function Impact() {
                     <p className="font-mono text-xs uppercase tracking-wider text-accent2">
                       Case study
                     </p>
-                    <h3 className="mt-2 text-lg font-semibold leading-snug text-white">
+                    <h3 className="mt-2 text-lg font-semibold leading-snug text-fg">
                       {cs.title}
                     </h3>
                     <p className="mt-2 text-sm text-muted">{cs.context}</p>
@@ -66,7 +68,7 @@ export function Impact() {
                       {cs.tags.map((t) => (
                         <span
                           key={t}
-                          className="rounded-md border border-line bg-base px-2 py-1 text-xs text-gray-400"
+                          className="rounded-md border border-line bg-base px-2 py-1 text-xs text-muted"
                         >
                           {t}
                         </span>
@@ -77,14 +79,14 @@ export function Impact() {
                   <div className="md:col-span-2">
                     <div className="space-y-4 text-sm leading-relaxed">
                       <div>
-                        <p className="font-semibold text-white">The problem</p>
+                        <p className="font-semibold text-fg">The problem</p>
                         <p className="mt-1 text-muted">{cs.problem}</p>
                       </div>
                       <div>
-                        <p className="font-semibold text-white">What I did</p>
+                        <p className="font-semibold text-fg">What I did</p>
                         <ul className="mt-2 space-y-2">
                           {cs.approach.map((a) => (
-                            <li key={a} className="flex items-start gap-2.5 text-gray-300">
+                            <li key={a} className="flex items-start gap-2.5 text-body">
                               <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                               <span>{a}</span>
                             </li>
@@ -93,7 +95,7 @@ export function Impact() {
                       </div>
                       <div className="rounded-xl border border-accent2/30 bg-accent2/5 p-4">
                         <p className="font-semibold text-accent2">The result</p>
-                        <p className="mt-1 text-gray-200">{cs.result}</p>
+                        <p className="mt-1 text-body">{cs.result}</p>
                       </div>
                     </div>
                   </div>

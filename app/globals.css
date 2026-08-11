@@ -5,6 +5,29 @@
 :root {
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
+
+  /* Dark theme (default) — space-separated RGB for Tailwind alpha support */
+  --c-base: 10 10 15;
+  --c-surface: 18 18 26;
+  --c-surface2: 26 26 38;
+  --c-line: 38 38 58;
+  --c-fg: 231 231 240;
+  --c-body: 209 213 219;
+  --c-muted: 168 168 194;
+  --c-accent: 115 85 245; /* AA: white text on accent buttons ≥ 4.5:1 */
+  --c-accent2: 34 211 238;
+}
+
+.light {
+  --c-base: 248 249 251;
+  --c-surface: 255 255 255;
+  --c-surface2: 241 243 247;
+  --c-line: 214 218 227;
+  --c-fg: 17 20 28;
+  --c-body: 51 58 72;
+  --c-muted: 90 98 116;
+  --c-accent: 107 70 229; /* darker violet for AA contrast on light */
+  --c-accent2: 14 116 144; /* cyan-700 for AA contrast on light */
 }
 
 html {
@@ -12,15 +35,16 @@ html {
 }
 
 body {
-  background-color: theme(colors.base);
-  color: #e7e7f0;
+  background-color: rgb(var(--c-base));
+  color: rgb(var(--c-fg));
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .bg-grid {
   background-image: radial-gradient(
     circle at 1px 1px,
-    rgba(124, 92, 255, 0.12) 1px,
+    rgb(var(--c-accent) / 0.12) 1px,
     transparent 0
   );
   background-size: 40px 40px;
@@ -29,8 +53,8 @@ body {
 .gradient-text {
   background: linear-gradient(
     90deg,
-    theme(colors.accent),
-    theme(colors.accent2)
+    rgb(var(--c-accent)),
+    rgb(var(--c-accent2))
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -38,7 +62,7 @@ body {
 }
 
 ::selection {
-  background: rgba(124, 92, 255, 0.35);
+  background: rgb(var(--c-accent) / 0.35);
 }
 
 /* Thin scrollbar */
@@ -46,12 +70,21 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: theme(colors.base);
+  background: rgb(var(--c-base));
 }
 ::-webkit-scrollbar-thumb {
-  background: theme(colors.line);
+  background: rgb(var(--c-line));
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #34344e;
+  background: rgb(var(--c-muted) / 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    transition: none;
+  }
 }

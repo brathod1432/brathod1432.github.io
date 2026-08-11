@@ -17,7 +17,9 @@ const csp = [
   "script-src 'self' 'unsafe-inline'",
   "connect-src 'self' https://api.web3forms.com https://plausible.io",
   "form-action 'self' https://api.web3forms.com",
-  "frame-ancestors 'none'",
+  // NOTE: frame-ancestors is intentionally omitted — it is ignored (and logs a
+  // console error) when set via <meta>; it only works as a real HTTP header,
+  // which GitHub Pages cannot set. Documented in README.
   "upgrade-insecure-requests",
 ].join("; ");
 

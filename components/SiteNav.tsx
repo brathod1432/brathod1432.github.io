@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { GITHUB, LINKEDIN } from "@/data/projects";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const NAV_ITEMS = [
   { id: "about", label: "About" },
@@ -44,7 +45,7 @@ export function SiteNav() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a
           href="#top"
-          className="font-mono text-sm font-semibold tracking-tight text-white"
+          className="font-mono text-sm font-semibold tracking-tight text-fg"
           onClick={() => setOpen(false)}
         >
           brijesh<span className="text-accent">.rathod</span>
@@ -55,8 +56,8 @@ export function SiteNav() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`transition-colors hover:text-white ${
-                active === item.id ? "text-white" : ""
+              className={`transition-colors hover:text-fg ${
+                active === item.id ? "text-fg" : ""
               }`}
               aria-current={active === item.id ? "true" : undefined}
             >
@@ -66,12 +67,13 @@ export function SiteNav() {
         </div>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <a
             href={LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="hidden rounded-full border border-line p-2 text-muted transition-colors hover:border-accent hover:text-white sm:inline-flex"
+            className="hidden rounded-full border border-line p-2 text-muted transition-colors hover:border-accent hover:text-fg sm:inline-flex"
           >
             <LinkedInIcon className="h-4 w-4" />
           </a>
@@ -80,7 +82,7 @@ export function SiteNav() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hidden rounded-full border border-line p-2 text-muted transition-colors hover:border-accent hover:text-white sm:inline-flex"
+            className="hidden rounded-full border border-line p-2 text-muted transition-colors hover:border-accent hover:text-fg sm:inline-flex"
           >
             <GitHubIcon className="h-4 w-4" />
           </a>
@@ -97,7 +99,7 @@ export function SiteNav() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="inline-flex items-center justify-center rounded-md border border-line p-2 text-white md:hidden"
+            className="inline-flex items-center justify-center rounded-md border border-line p-2 text-fg md:hidden"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden>
               {open ? (
@@ -120,7 +122,7 @@ export function SiteNav() {
                 href={`#${item.id}`}
                 onClick={() => setOpen(false)}
                 className={`border-b border-line/40 py-3 text-sm last:border-0 ${
-                  active === item.id ? "text-white" : "text-muted"
+                  active === item.id ? "text-fg" : "text-muted"
                 }`}
               >
                 {item.label}

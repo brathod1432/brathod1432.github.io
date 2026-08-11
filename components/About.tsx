@@ -28,7 +28,7 @@ function highlight(text: string, phrases?: string[]) {
   const re = new RegExp(`(${escaped.join("|")})`, "g");
   return text.split(re).map((part, i) =>
     phrases.includes(part) ? (
-      <strong key={i} className="font-semibold text-gray-100">
+      <strong key={i} className="font-semibold text-fg">
         {part}
       </strong>
     ) : (
@@ -50,7 +50,7 @@ export function About() {
           <div className="lg:col-span-5">
             <Reveal>
               <Eyebrow>My story</Eyebrow>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-fg sm:text-3xl">
                 From Robotics to Reliable AI Systems
               </h2>
               <p className="mt-3 inline-flex items-center gap-2 text-sm text-accent2">
@@ -68,7 +68,7 @@ export function About() {
                     key={f.label}
                     className="rounded-xl border border-line bg-surface px-4 py-3"
                   >
-                    <dt className="text-lg font-bold text-white">{f.value}</dt>
+                    <dt className="text-lg font-bold text-fg">{f.value}</dt>
                     <dd className="mt-0.5 text-xs text-muted">{f.label}</dd>
                   </div>
                 ))}
@@ -81,7 +81,7 @@ export function About() {
                 {languages.map((l) => (
                   <span
                     key={l.name}
-                    className="rounded-full border border-line bg-base px-3 py-1 text-xs text-gray-300"
+                    className="rounded-full border border-line bg-base px-3 py-1 text-xs text-body"
                   >
                     {l.name}{" "}
                     <span className="font-mono text-accent2">{l.level}</span>
@@ -94,7 +94,7 @@ export function About() {
           {/* Timeline + education */}
           <div className="lg:col-span-7">
             <Reveal delay={120}>
-              <div className="mb-5 flex items-center gap-2 text-sm font-semibold text-white">
+              <div className="mb-5 flex items-center gap-2 text-sm font-semibold text-fg">
                 <BriefcaseIcon className="h-5 w-5 text-accent" /> Experience
               </div>
             </Reveal>
@@ -120,10 +120,10 @@ export function About() {
                     <p className="font-mono text-xs uppercase tracking-wider text-accent2">
                       {item.period}
                     </p>
-                    <h3 className="mt-1 text-base font-semibold text-white">
+                    <h3 className="mt-1 text-base font-semibold text-fg">
                       {item.role}
                     </h3>
-                    <p className="text-sm font-medium text-gray-300">
+                    <p className="text-sm font-medium text-body">
                       {item.org}
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -135,7 +135,7 @@ export function About() {
             </div>
 
             <Reveal delay={120}>
-              <div className="mb-4 mt-10 flex items-center gap-2 text-sm font-semibold text-white">
+              <div className="mb-4 mt-10 flex items-center gap-2 text-sm font-semibold text-fg">
                 <GradIcon className="h-5 w-5 text-accent" /> Education
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
@@ -144,7 +144,7 @@ export function About() {
                     key={e.degree}
                     className="rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-accent/40"
                   >
-                    <h4 className="text-sm font-semibold text-white">
+                    <h4 className="text-sm font-semibold text-fg">
                       {e.degree}
                     </h4>
                     <p className="mt-1 text-xs text-accent2">

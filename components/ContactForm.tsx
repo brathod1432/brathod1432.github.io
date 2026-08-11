@@ -38,7 +38,7 @@ function CopyEmail() {
     <button
       type="button"
       onClick={copy}
-      className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2.5 text-sm font-medium text-white transition-colors hover:border-accent2"
+      className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2.5 text-sm font-medium text-fg transition-colors hover:border-accent2"
     >
       {copied ? (
         <>
@@ -57,7 +57,7 @@ function SelectedChip({ label }: { label: string }) {
   return (
     <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent2/40 bg-accent2/5 px-4 py-1.5 text-sm text-accent2">
       <CheckIcon className="h-4 w-4" />
-      Selected: <span className="font-semibold text-white">{label}</span>
+      Selected: <span className="font-semibold text-fg">{label}</span>
     </div>
   );
 }
@@ -102,14 +102,14 @@ export function ContactForm() {
             href={LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent2"
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent2"
           >
             <LinkedInIcon className="h-4 w-4 text-[#0a66c2]" /> LinkedIn
           </a>
           <a
             href={CV_PATH}
             download
-            className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent"
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent"
           >
             Download CV
           </a>
@@ -117,7 +117,7 @@ export function ContactForm() {
             href={GITHUB}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent"
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent"
           >
             <GitHubIcon className="h-4 w-4" /> GitHub
           </a>
@@ -171,7 +171,7 @@ export function ContactForm() {
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent2/15 text-accent2">
           <CheckIcon className="h-6 w-6" />
         </div>
-        <h3 className="mt-4 text-lg font-semibold text-white">Message sent!</h3>
+        <h3 className="mt-4 text-lg font-semibold text-fg">Message sent!</h3>
         <p className="mt-2 text-sm text-muted">
           Thanks for reaching out — I&apos;ll get back to you within a day.
         </p>
@@ -212,7 +212,7 @@ export function ContactForm() {
             type="text"
             required
             autoComplete="name"
-            className="w-full rounded-lg border border-line bg-base px-4 py-2.5 text-sm text-white outline-none transition-colors placeholder:text-muted/60 focus:border-accent"
+            className="w-full rounded-lg border border-line bg-base px-4 py-2.5 text-sm text-fg outline-none transition-colors placeholder:text-muted/60 focus:border-accent"
             placeholder="Your name"
           />
         </div>
@@ -226,7 +226,7 @@ export function ContactForm() {
             type="email"
             required
             autoComplete="email"
-            className="w-full rounded-lg border border-line bg-base px-4 py-2.5 text-sm text-white outline-none transition-colors placeholder:text-muted/60 focus:border-accent"
+            className="w-full rounded-lg border border-line bg-base px-4 py-2.5 text-sm text-fg outline-none transition-colors placeholder:text-muted/60 focus:border-accent"
             placeholder="you@company.com"
           />
         </div>
@@ -243,7 +243,7 @@ export function ContactForm() {
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="w-full resize-y rounded-lg border border-line bg-base px-4 py-2.5 text-sm text-white outline-none transition-colors placeholder:text-muted/60 focus:border-accent"
+          className="w-full resize-y rounded-lg border border-line bg-base px-4 py-2.5 text-sm text-fg outline-none transition-colors placeholder:text-muted/60 focus:border-accent"
           placeholder="A few lines about your project or role…"
         />
       </div>
@@ -261,7 +261,7 @@ export function ContactForm() {
         <a
           href={CV_PATH}
           download
-          className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent2"
+          className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent2"
         >
           Download CV
         </a>
