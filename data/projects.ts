@@ -18,6 +18,8 @@ export type Category = {
 };
 
 export const GITHUB = "https://github.com/brathod1432";
+export const LINKEDIN = "https://www.linkedin.com/in/rbrijesh07/";
+export const EMAIL = "bgrathod00@gmail.com";
 
 export const categories: Category[] = [
   {
@@ -238,6 +240,71 @@ export type PrivateWork = {
   description: string;
   tech: string[];
 };
+
+export type Service = {
+  icon: "ai" | "robot" | "web" | "quality";
+  title: string;
+  pitch: string;
+  points: string[];
+};
+
+export const services: Service[] = [
+  {
+    icon: "ai",
+    title: "AI & LLM Systems",
+    pitch:
+      "Ship LLM features you can actually trust — with the evaluation, guardrails, and infrastructure to keep them reliable in production.",
+    points: [
+      "RAG, agents & workflow automation",
+      "Evaluation harnesses & regression gates",
+      "Hallucination, PII & prompt-injection defense",
+      "Model gateways with caching & observability",
+    ],
+  },
+  {
+    icon: "robot",
+    title: "Robotics & Automation",
+    pitch:
+      "Turn manual mechanical and robotics work into repeatable code — from kinematics to automated design pipelines.",
+    points: [
+      "Forward/inverse kinematics & motion planning",
+      "Parametric design automation (URDF, CAD export)",
+      "Simulation & analysis tooling",
+      "Pure-Python, no heavy ROS setup required",
+    ],
+  },
+  {
+    icon: "web",
+    title: "Full-Stack Products",
+    pitch:
+      "Security-first, accessible web apps and dashboards that go from prototype to production without rewrites.",
+    points: [
+      "Next.js + TypeScript apps & dashboards",
+      "RBAC, auth, audit trails & hardened headers",
+      "Accessible (WCAG AA) and SEO-ready",
+      "Reusable, brandable starters",
+    ],
+  },
+  {
+    icon: "quality",
+    title: "Engineering Rigor",
+    pitch:
+      "The part most projects skip: making systems measurably good and keeping them that way as they grow.",
+    points: [
+      "CI/CD pipelines & automated quality gates",
+      "Testing, type-safety & code review",
+      "Observability, metrics & structured logging",
+      "Documentation that stays useful",
+    ],
+  },
+];
+
+export const valueProps: string[] = [
+  "Production-minded from day one",
+  "Measurable quality, not vibes",
+  "Clear, documented handoffs",
+  "Security & accessibility by default",
+];
 
 export const privateWork: PrivateWork[] = [
   {

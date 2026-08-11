@@ -5,12 +5,20 @@ export function ProjectCard({ project }: { project: Project }) {
   const href = project.repo ? `${GITHUB}/${project.repo}` : undefined;
 
   return (
-    <article className="group relative flex flex-col rounded-2xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface2">
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:bg-surface2 hover:shadow-[0_20px_60px_-25px_rgba(124,92,255,0.5)]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="text-lg font-semibold tracking-tight text-white">
-            {project.title}
-          </h3>
+          <div className="flex items-center gap-2">
+            <h3 className="text-lg font-semibold tracking-tight text-white">
+              {project.title}
+            </h3>
+            {project.featured && (
+              <span className="rounded-full border border-accent/40 bg-accent/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent2">
+                Featured
+              </span>
+            )}
+          </div>
           <p className="mt-1 text-sm text-accent2">{project.tagline}</p>
         </div>
         {href && (

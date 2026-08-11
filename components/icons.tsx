@@ -39,3 +39,60 @@ export function LockIcon({ className = "h-4 w-4" }: { className?: string }) {
     </svg>
   );
 }
+
+function base(className: string) {
+  return {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.7,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    className,
+    "aria-hidden": true,
+  };
+}
+
+export function AiIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base(className)}>
+      <path d="M12 3a3 3 0 0 0-3 3 3 3 0 0 0-2 5.2A3 3 0 0 0 9 17a3 3 0 0 0 6 0 3 3 0 0 0 2-5.8A3 3 0 0 0 15 6a3 3 0 0 0-3-3Z" />
+      <path d="M12 8v9M9 11h6" />
+    </svg>
+  );
+}
+
+export function RobotIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base(className)}>
+      <rect x="5" y="8" width="14" height="10" rx="2" />
+      <path d="M12 8V4M12 4h-2M9 13h.01M15 13h.01M9 18v2M15 18v2" />
+      <circle cx="12" cy="4" r="1" />
+    </svg>
+  );
+}
+
+export function WebIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base(className)}>
+      <path d="m9 8-4 4 4 4M15 8l4 4-4 4" />
+    </svg>
+  );
+}
+
+export function QualityIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base(className)}>
+      <path d="M12 3 4 6v6c0 4.5 3.4 7.9 8 9 4.6-1.1 8-4.5 8-9V6l-8-3Z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+}
+
+export function CheckIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg {...base(className)}>
+      <path d="m5 12 5 5L20 7" />
+    </svg>
+  );
+}
