@@ -241,6 +241,92 @@ export type PrivateWork = {
   tech: string[];
 };
 
+export const about = {
+  role: "QA Team Lead · Senior Software Quality & Automation Engineer",
+  location: "Warsaw, Poland",
+  paragraphs: [
+    "My path started in hardware and motion. I studied Mechatronics and then Robotics at the Warsaw University of Technology — living in kinematics, control systems, computer vision, and embedded design. That engineering foundation still shapes how I think: model the system, respect the constraints, and prove it works.",
+    "I moved into software through quality. I began testing games and web applications, then grew from junior to senior QA — owning test strategy, defect lifecycles, and release readiness. Breaking software taught me exactly what it takes to build it so it doesn't break.",
+    "Today, at Dell Technologies, I lead QA and automation for enterprise storage systems — architecting Python frameworks and Jenkins CI/CD pipelines, and cutting end-to-end regression from roughly four weeks to five days. Most recently I've been building AI-assisted, multi-agent quality engineering: the same instinct for reliability, now applied to LLMs and autonomous workflows.",
+  ],
+};
+
+export const quickFacts: { value: string; label: string }[] = [
+  { value: "6+ yrs", label: "Quality & automation" },
+  { value: "M.Sc.", label: "Robotics — WUT" },
+  { value: "Warsaw", label: "Poland (C2 English)" },
+  { value: "Dell", label: "QA Team Lead" },
+];
+
+export type TimelineItem = {
+  period: string;
+  role: string;
+  org: string;
+  summary: string;
+  current?: boolean;
+};
+
+export const experience: TimelineItem[] = [
+  {
+    period: "Jan 2023 — Present",
+    role: "Senior Software Automation Engineer & QA Team Lead",
+    org: "Dell Technologies",
+    summary:
+      "Lead QA and automation for enterprise storage. Built a test-orchestration framework and AI-assisted multi-agent quality workflows, and cut end-to-end regression from ~4 weeks to 5 days. Mentor engineers and own delivery from requirements to release.",
+    current: true,
+  },
+  {
+    period: "Mar 2022 — Jan 2023",
+    role: "Senior Quality Assurance Technician",
+    org: "Testronic",
+    summary:
+      "Owned test planning, execution, and release readiness across functional, regression, smoke, and exploratory testing — driving defect investigation with engineering and design.",
+  },
+  {
+    period: "Mar 2020 — Feb 2022",
+    role: "Junior Functionality QA Technician",
+    org: "Testronic",
+    summary:
+      "Executed functional, regression, and exploratory testing, tracked defects in Jira, and introduced selective automation to cut repetitive manual effort.",
+  },
+  {
+    period: "Mar 2020 — Feb 2022",
+    role: "Freelance Software & Web Tester",
+    org: "Fiverr",
+    summary:
+      "Tested games, web UIs, and applications for global clients — covering functionality, usability, and user flows with clear, evidence-backed defect reports.",
+  },
+];
+
+export type EducationItem = {
+  degree: string;
+  school: string;
+  period?: string;
+  focus: string;
+};
+
+export const education: EducationItem[] = [
+  {
+    degree: "M.Sc. in Robotics",
+    school: "Warsaw University of Technology",
+    focus:
+      "AI & machine learning, computer vision, robot kinematics, Kalman filtering, autonomous systems, and AI planning.",
+  },
+  {
+    degree: "B.Sc. in Mechatronics Engineering",
+    school: "Warsaw University of Technology",
+    period: "2020 — 2023",
+    focus:
+      "Mechatronic systems, industrial diagnostics, metrology, precision devices, modelling & simulation, and 3D CAD.",
+  },
+];
+
+export const languages: { name: string; level: string }[] = [
+  { name: "English", level: "C2" },
+  { name: "German", level: "A2" },
+  { name: "Polish", level: "A2" },
+];
+
 export type Service = {
   icon: "ai" | "robot" | "web" | "quality";
   title: string;

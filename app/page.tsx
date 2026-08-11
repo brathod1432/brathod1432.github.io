@@ -9,6 +9,7 @@ import {
   Service,
 } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
+import { About } from "@/components/About";
 import { Reveal } from "@/components/Reveal";
 import {
   GitHubIcon,
@@ -70,6 +71,9 @@ function Nav() {
           brijesh<span className="text-accent">.rathod</span>
         </a>
         <div className="hidden items-center gap-7 text-sm text-muted md:flex">
+          <a href="#about" className="transition-colors hover:text-white">
+            About
+          </a>
           <a href="#services" className="transition-colors hover:text-white">
             Services
           </a>
@@ -240,6 +244,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <About />
         <Services />
 
         {categories.map((cat) => (

@@ -96,3 +96,39 @@ export function CheckIcon({ className = "h-4 w-4" }: { className?: string }) {
     </svg>
   );
 }
+
+export function BriefcaseIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg {...base(className)}>
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" />
+    </svg>
+  );
+}
+
+export function GradIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg {...base(className)}>
+      <path d="M22 9 12 5 2 9l10 4 10-4Z" />
+      <path d="M6 11v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5" />
+    </svg>
+  );
+}
+
+export function PinIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg {...base(className)}>
+      <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
+  );
+}
+
+export function GlobeIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg {...base(className)}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" />
+    </svg>
+  );
+}
