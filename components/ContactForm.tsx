@@ -122,11 +122,6 @@ export function ContactForm() {
             <GitHubIcon className="h-4 w-4" /> GitHub
           </a>
         </div>
-        <p className="mt-6 text-xs text-muted">
-          Prefer a form? Add a free Web3Forms key in{" "}
-          <span className="font-mono">data/projects.ts</span> and it appears here
-          automatically.
-        </p>
       </div>
     );
   }
