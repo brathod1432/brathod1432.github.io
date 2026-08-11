@@ -3,6 +3,7 @@ import {
   privateWork,
   services,
   valueProps,
+  process,
   GITHUB,
   LINKEDIN,
   EMAIL,
@@ -169,12 +170,21 @@ function Services() {
             const Icon = serviceIcons[s.icon];
             return (
               <Reveal key={s.title} delay={i * 90}>
-                <div className="group h-full rounded-2xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface2">
+                <div className="group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface2 hover:shadow-[0_20px_60px_-25px_rgba(124,92,255,0.5)]">
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <span className="absolute right-6 top-6 font-mono text-sm font-semibold text-line transition-colors group-hover:text-accent/70">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-line bg-base text-accent2 transition-colors group-hover:border-accent group-hover:text-accent">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-line bg-gradient-to-br from-accent/15 to-accent2/10 text-accent2 transition-colors group-hover:border-accent group-hover:text-accent">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <h3 className="text-lg font-semibold text-white">{s.title}</h3>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white">{s.title}</h3>
+                      <p className="mt-0.5 text-sm font-medium text-accent2">
+                        {s.outcome}
+                      </p>
+                    </div>
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-muted">{s.pitch}</p>
                   <ul className="mt-5 grid gap-2.5">
@@ -191,13 +201,53 @@ function Services() {
           })}
         </div>
 
+        {/* How I work */}
         <Reveal delay={120}>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 rounded-2xl border border-line bg-surface/60 px-6 py-5">
-            {valueProps.map((v) => (
-              <span key={v} className="inline-flex items-center gap-2 text-sm text-gray-300">
-                <CheckIcon className="h-4 w-4 text-accent2" /> {v}
-              </span>
-            ))}
+          <div className="mt-16">
+            <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-muted">
+              How we&apos;d work together
+            </h3>
+            <div className="relative mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <span className="pointer-events-none absolute left-0 right-0 top-5 hidden h-px bg-gradient-to-r from-transparent via-line to-transparent lg:block" />
+              {process.map((step, i) => (
+                <div key={step.title} className="relative text-center lg:text-left">
+                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-line bg-base font-mono text-sm font-semibold text-accent2 lg:mx-0">
+                    {i + 1}
+                  </div>
+                  <h4 className="mt-4 text-sm font-semibold text-white">
+                    {step.title}
+                  </h4>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Principles + CTA */}
+        <Reveal delay={120}>
+          <div className="mt-14 flex flex-col items-center gap-6 rounded-2xl border border-line bg-surface/60 px-6 py-8 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+              {valueProps.map((v) => (
+                <span key={v} className="inline-flex items-center gap-2 text-sm text-gray-300">
+                  <CheckIcon className="h-4 w-4 text-accent2" /> {v}
+                </span>
+              ))}
+            </div>
+            <div>
+              <p className="text-sm text-muted">
+                Not sure which of these fits? Tell me what you&apos;re building and
+                I&apos;ll point you the right way.
+              </p>
+              <a
+                href="#contact"
+                className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
+              >
+                Start a conversation <ArrowIcon className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </Reveal>
       </div>

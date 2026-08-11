@@ -391,6 +391,8 @@ export const languages: { name: string; level: string }[] = [
 export type Service = {
   icon: "ai" | "robot" | "web" | "quality";
   title: string;
+  // One-line client outcome — the benefit, not the activity.
+  outcome: string;
   pitch: string;
   points: string[];
 };
@@ -399,8 +401,9 @@ export const services: Service[] = [
   {
     icon: "ai",
     title: "AI & LLM Systems",
+    outcome: "Ship AI features you can trust in production",
     pitch:
-      "Ship LLM features you can actually trust — with the evaluation, guardrails, and infrastructure to keep them reliable in production.",
+      "Most LLM demos never survive contact with real users. I build the evaluation, guardrails, and infrastructure that make them dependable.",
     points: [
       "RAG, agents & workflow automation",
       "Evaluation harnesses & regression gates",
@@ -411,8 +414,9 @@ export const services: Service[] = [
   {
     icon: "robot",
     title: "Robotics & Automation",
+    outcome: "Turn manual engineering work into repeatable code",
     pitch:
-      "Turn manual mechanical and robotics work into repeatable code — from kinematics to automated design pipelines.",
+      "Repetitive mechanical and robotics tasks become tested, version-controlled tooling — from kinematics to automated design pipelines.",
     points: [
       "Forward/inverse kinematics & motion planning",
       "Parametric design automation (URDF, CAD export)",
@@ -423,8 +427,9 @@ export const services: Service[] = [
   {
     icon: "web",
     title: "Full-Stack Products",
+    outcome: "Go from prototype to production without rewrites",
     pitch:
-      "Security-first, accessible web apps and dashboards that go from prototype to production without rewrites.",
+      "Security-first, accessible web apps and dashboards, architected so the first version is one you can actually keep building on.",
     points: [
       "Next.js + TypeScript apps & dashboards",
       "RBAC, auth, audit trails & hardened headers",
@@ -435,14 +440,40 @@ export const services: Service[] = [
   {
     icon: "quality",
     title: "Engineering Rigor",
+    outcome: "Keep quality high as the system grows",
     pitch:
-      "The part most projects skip: making systems measurably good and keeping them that way as they grow.",
+      "The part most projects skip: making systems measurably good, then keeping them that way as the team and codebase scale.",
     points: [
       "CI/CD pipelines & automated quality gates",
       "Testing, type-safety & code review",
       "Observability, metrics & structured logging",
       "Documentation that stays useful",
     ],
+  },
+];
+
+// How an engagement typically runs — reassures clients on process.
+export type ProcessStep = { title: string; description: string };
+export const process: ProcessStep[] = [
+  {
+    title: "Discover",
+    description:
+      "We align on the problem, constraints, and what “done well” actually means before any code is written.",
+  },
+  {
+    title: "Design & build",
+    description:
+      "I architect the solution and ship in small, reviewable increments you can follow the whole way.",
+  },
+  {
+    title: "Harden",
+    description:
+      "Tests, CI/CD, observability, and security so it holds up under real-world use — not just the demo.",
+  },
+  {
+    title: "Hand off",
+    description:
+      "Clear documentation and a maintainable codebase your team can own with confidence.",
   },
 ];
 
