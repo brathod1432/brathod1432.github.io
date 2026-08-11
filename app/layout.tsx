@@ -56,7 +56,7 @@ const jsonLd = {
   name: "Brijesh Rathod",
   url: SITE_URL,
   email: `mailto:${EMAIL}`,
-  jobTitle: "QA Team Lead & Senior Software Automation Engineer",
+  jobTitle: "Automation Team Lead & Senior Software Automation Engineer",
   worksFor: { "@type": "Organization", name: "Dell Technologies" },
   address: {
     "@type": "PostalAddress",

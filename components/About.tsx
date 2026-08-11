@@ -22,6 +22,21 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
+function highlight(text: string, phrases?: string[]) {
+  if (!phrases || phrases.length === 0) return text;
+  const escaped = phrases.map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const re = new RegExp(`(${escaped.join("|")})`, "g");
+  return text.split(re).map((part, i) =>
+    phrases.includes(part) ? (
+      <strong key={i} className="font-semibold text-gray-100">
+        {part}
+      </strong>
+    ) : (
+      <span key={i}>{part}</span>
+    )
+  );
+}
+
 export function About() {
   return (
     <section
@@ -36,7 +51,7 @@ export function About() {
             <Reveal>
               <Eyebrow>My story</Eyebrow>
               <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                From robotics to reliable AI systems
+                From Robotics to Reliable AI Systems
               </h2>
               <p className="mt-3 inline-flex items-center gap-2 text-sm text-accent2">
                 <PinIcon className="h-4 w-4" /> {about.location}
@@ -84,20 +99,21 @@ export function About() {
               </div>
             </Reveal>
 
-            <div className="relative ml-2 border-l border-line pl-8">
-              <span className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-accent via-accent2/60 to-transparent" />
+            <div className="relative ml-2 border-l-2 border-line pl-9">
+              <span className="pointer-events-none absolute left-[-1px] top-0 h-full w-0.5 bg-gradient-to-b from-accent via-accent2/60 to-transparent" />
               {experience.map((item, i) => (
                 <Reveal key={item.role + item.period} delay={i * 90}>
-                  <div className="relative pb-9 last:pb-0">
-                    <span className="absolute -left-[38px] top-1 flex h-4 w-4 items-center justify-center">
+                  <div className="relative pb-10 last:pb-0">
+                    {/* Diamond node, centered on the timeline */}
+                    <span className="absolute -left-9 top-1 flex h-6 w-6 -translate-x-1/2 items-center justify-center">
                       {item.current && (
-                        <span className="absolute inline-flex h-4 w-4 animate-ping rounded-full bg-accent/50" />
+                        <span className="absolute inline-flex h-6 w-6 rotate-45 rounded-[4px] bg-accent/40 animate-ping" />
                       )}
                       <span
-                        className={`relative h-3 w-3 rounded-full border-2 ${
+                        className={`relative h-3.5 w-3.5 rotate-45 rounded-[4px] ring-4 ring-base ${
                           item.current
-                            ? "border-accent bg-accent"
-                            : "border-accent2 bg-base"
+                            ? "bg-gradient-to-br from-accent to-accent2 shadow-[0_0_12px_rgba(124,92,255,0.8)]"
+                            : "border-2 border-accent2 bg-surface2"
                         }`}
                       />
                     </span>
@@ -111,7 +127,7 @@ export function About() {
                       {item.org}
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-muted">
-                      {item.summary}
+                      {highlight(item.summary, item.highlights)}
                     </p>
                   </div>
                 </Reveal>

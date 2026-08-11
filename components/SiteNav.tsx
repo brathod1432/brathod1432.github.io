@@ -88,7 +88,7 @@ export function SiteNav() {
             href="#contact"
             className="hidden rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03] md:inline-flex"
           >
-            Hire me
+            Contact me
           </a>
 
           {/* Mobile menu button */}
@@ -132,7 +132,7 @@ export function SiteNav() {
                 onClick={() => setOpen(false)}
                 className="flex-1 rounded-full bg-accent px-4 py-2.5 text-center text-sm font-semibold text-white"
               >
-                Hire me
+                Contact me
               </a>
               <a
                 href={LINKEDIN}

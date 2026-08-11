@@ -36,7 +36,6 @@ export const siteConfig = {
 };
 
 export const metrics: { value: string; label: string }[] = [
-  { value: "4wk → 5d", label: "Regression cycle cut at Dell" },
   { value: "6+ yrs", label: "Quality & automation engineering" },
   { value: "396", label: "Automated tests in one toolkit" },
   { value: "1,050+", label: "Reusable AI assets indexed" },
@@ -294,12 +293,12 @@ export type PrivateWork = {
 };
 
 export const about = {
-  role: "QA Team Lead · Senior Software Quality & Automation Engineer",
+  role: "Automation Team Lead · Senior Software Automation Engineer",
   location: "Warsaw, Poland",
   paragraphs: [
     "My path started in hardware and motion. I studied Mechatronics and then Robotics at the Warsaw University of Technology — living in kinematics, control systems, computer vision, and embedded design. That engineering foundation still shapes how I think: model the system, respect the constraints, and prove it works.",
     "I moved into software through quality. I began testing games and web applications, then grew from junior to senior QA — owning test strategy, defect lifecycles, and release readiness. Breaking software taught me exactly what it takes to build it so it doesn't break.",
-    "Today, at Dell Technologies, I lead QA and automation for enterprise storage systems — architecting Python frameworks and Jenkins CI/CD pipelines, and cutting end-to-end regression from roughly four weeks to five days. Most recently I've been building AI-assisted, multi-agent quality engineering: the same instinct for reliability, now applied to LLMs and autonomous workflows.",
+    "Today, at Dell Technologies, I lead automation and quality engineering for enterprise storage systems — architecting Python frameworks and Jenkins CI/CD pipelines, and cutting end-to-end regression from roughly four weeks to five days. Most recently I've been building AI-assisted, multi-agent quality engineering: the same instinct for reliability, now applied to LLMs and autonomous workflows.",
   ],
 };
 
@@ -307,7 +306,7 @@ export const quickFacts: { value: string; label: string }[] = [
   { value: "6+ yrs", label: "Quality & automation" },
   { value: "M.Sc.", label: "Robotics — WUT" },
   { value: "Warsaw", label: "Poland (C2 English)" },
-  { value: "Dell", label: "QA Team Lead" },
+  { value: "Dell", label: "Automation Team Lead" },
 ];
 
 export type TimelineItem = {
@@ -315,16 +314,23 @@ export type TimelineItem = {
   role: string;
   org: string;
   summary: string;
+  // Substrings of `summary` to visually emphasise.
+  highlights?: string[];
   current?: boolean;
 };
 
 export const experience: TimelineItem[] = [
   {
     period: "Jan 2023 — Present",
-    role: "Senior Software Automation Engineer & QA Team Lead",
+    role: "Automation Team Lead & Senior Software Automation Engineer",
     org: "Dell Technologies",
     summary:
-      "Lead QA and automation for enterprise storage. Built a test-orchestration framework and AI-assisted multi-agent quality workflows, and cut end-to-end regression from ~4 weeks to 5 days. Mentor engineers and own delivery from requirements to release.",
+      "Lead automation and quality engineering for enterprise storage. Built a test-orchestration framework and AI-assisted multi-agent quality workflows, and cut end-to-end regression from ~4 weeks to 5 days. Mentor engineers and own delivery from requirements to release.",
+    highlights: [
+      "test-orchestration framework",
+      "AI-assisted multi-agent quality workflows",
+      "~4 weeks to 5 days",
+    ],
     current: true,
   },
   {
@@ -333,6 +339,7 @@ export const experience: TimelineItem[] = [
     org: "Testronic",
     summary:
       "Owned test planning, execution, and release readiness across functional, regression, smoke, and exploratory testing — driving defect investigation with engineering and design.",
+    highlights: ["test planning, execution, and release readiness"],
   },
   {
     period: "Mar 2020 — Feb 2022",
@@ -340,6 +347,7 @@ export const experience: TimelineItem[] = [
     org: "Testronic",
     summary:
       "Executed functional, regression, and exploratory testing, tracked defects in Jira, and introduced selective automation to cut repetitive manual effort.",
+    highlights: ["selective automation"],
   },
   {
     period: "Mar 2020 — Feb 2022",
@@ -347,6 +355,7 @@ export const experience: TimelineItem[] = [
     org: "Fiverr",
     summary:
       "Tested games, web UIs, and applications for global clients — covering functionality, usability, and user flows with clear, evidence-backed defect reports.",
+    highlights: ["global clients"],
   },
 ];
 

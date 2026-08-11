@@ -87,14 +87,17 @@ function Hero() {
           Hi, I&apos;m Brijesh Rathod
         </p>
         <h1 className="mt-4 max-w-3xl animate-fade-up text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
-          I build <span className="gradient-text">AI systems</span>, robotics
+          I build <span className="gradient-text">AI systems</span>, Robotics
           tooling, and production web platforms.
         </h1>
         <p className="mt-6 max-w-2xl animate-fade-up text-lg leading-relaxed text-muted">
-          QA Team Lead &amp; Senior Automation Engineer at Dell Technologies,
-          working across LLM evaluation &amp; safety, robot-arm kinematics, and
-          security-first full-stack products. I care about the hard part —
-          making systems reliably good, testable, and ready for production.
+          Automation Team Lead &amp; Senior Software Automation Engineer at{" "}
+          <span className="font-medium text-gray-200">Dell Technologies</span>.
+          I work across LLM evaluation &amp; safety, robot-arm kinematics, and
+          security-first full-stack products — focused on the hard part:{" "}
+          <span className="font-medium text-gray-200">
+            making systems reliably good, testable, and production-ready.
+          </span>
         </p>
         <div className="mt-8 flex animate-fade-up flex-wrap items-center gap-3">
           <a
