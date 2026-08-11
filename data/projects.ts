@@ -477,6 +477,45 @@ export const process: ProcessStep[] = [
   },
 ];
 
+export type EngagementType = {
+  label: string;
+  tagline: string;
+  description: string;
+  format: string;
+  // Text dropped into the contact message / mailto body when selected.
+  prefill: string;
+};
+
+export const engagements: EngagementType[] = [
+  {
+    label: "Advisory",
+    tagline: "A senior sounding board",
+    description:
+      "Ongoing guidance on architecture, AI strategy, and quality — design reviews, direction, and mentoring for your team.",
+    format: "Retainer · ongoing",
+    prefill:
+      "Hi Brijesh — I'm interested in an Advisory engagement. Here's what my team is working on and where I'd like your input:\n\n",
+  },
+  {
+    label: "Build Sprint",
+    tagline: "Ship a defined deliverable",
+    description:
+      "A focused, time-boxed sprint to design and build a specific feature, prototype, or automation — end to end.",
+    format: "Fixed scope · 1–4 weeks",
+    prefill:
+      "Hi Brijesh — I'd like to scope a Build Sprint. The deliverable I have in mind is:\n\n",
+  },
+  {
+    label: "Audit & Review",
+    tagline: "De-risk before you scale",
+    description:
+      "A deep review of your codebase, AI system, or CI/CD pipeline, delivered as a prioritized report with concrete fixes.",
+    format: "One-off · fixed fee",
+    prefill:
+      "Hi Brijesh — I'd like an Audit & Review. The system I'd like assessed is:\n\n",
+  },
+];
+
 export const valueProps: string[] = [
   "Production-minded from day one",
   "Measurable quality, not vibes",

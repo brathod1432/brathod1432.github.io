@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig, EMAIL, LINKEDIN, GITHUB, CV_PATH } from "@/data/projects";
 import {
   MailIcon,
@@ -11,6 +11,17 @@ import {
 } from "@/components/icons";
 
 type Status = "idle" | "sending" | "success" | "error";
+type EngagementDetail = { label: string; prefill: string };
+
+function useEngagementSelection(onSelect: (d: EngagementDetail) => void) {
+  const cb = useRef(onSelect);
+  cb.current = onSelect;
+  useEffect(() => {
+    const handler = (e: Event) => cb.current((e as CustomEvent<EngagementDetail>).detail);
+    window.addEventListener("engagement:select", handler);
+    return () => window.removeEventListener("engagement:select", handler);
+  }, []);
+}
 
 function CopyEmail() {
   const [copied, setCopied] = useState(false);
@@ -42,32 +53,11 @@ function CopyEmail() {
   );
 }
 
-function DirectLinks() {
+function SelectedChip({ label }: { label: string }) {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-3">
-      <a
-        href={`mailto:${EMAIL}?subject=Project%20inquiry`}
-        className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
-      >
-        <MailIcon className="h-4 w-4" /> Email me
-      </a>
-      <CopyEmail />
-      <a
-        href={LINKEDIN}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent2"
-      >
-        <LinkedInIcon className="h-4 w-4 text-[#0a66c2]" /> LinkedIn
-      </a>
-      <a
-        href={GITHUB}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent"
-      >
-        <GitHubIcon className="h-4 w-4" /> GitHub
-      </a>
+    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent2/40 bg-accent2/5 px-4 py-1.5 text-sm text-accent2">
+      <CheckIcon className="h-4 w-4" />
+      Selected: <span className="font-semibold text-white">{label}</span>
     </div>
   );
 }
@@ -76,12 +66,62 @@ export function ContactForm() {
   const key = siteConfig.web3formsKey.trim();
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const [selected, setSelected] = useState<EngagementDetail | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEngagementSelection((detail) => {
+    setSelected(detail);
+    setMessage(detail.prefill);
+    // Focus without fighting the smooth scroll triggered by the anchor.
+    requestAnimationFrame(() => {
+      textareaRef.current?.focus({ preventScroll: true });
+      const len = textareaRef.current?.value.length ?? 0;
+      textareaRef.current?.setSelectionRange(len, len);
+    });
+  });
 
   // No form backend configured yet — show robust direct-contact options.
   if (!key) {
+    const body = selected ? `&body=${encodeURIComponent(selected.prefill)}` : "";
+    const mailtoHref = `mailto:${EMAIL}?subject=${encodeURIComponent(
+      selected ? `${selected.label} inquiry` : "Project inquiry"
+    )}${body}`;
     return (
-      <div className="mt-8">
-        <DirectLinks />
+      <div className="mt-8 text-center">
+        {selected && <SelectedChip label={selected.label} />}
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href={mailtoHref}
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
+          >
+            <MailIcon className="h-4 w-4" /> Email me
+          </a>
+          <CopyEmail />
+          <a
+            href={LINKEDIN}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent2"
+          >
+            <LinkedInIcon className="h-4 w-4 text-[#0a66c2]" /> LinkedIn
+          </a>
+          <a
+            href={CV_PATH}
+            download
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent"
+          >
+            Download CV
+          </a>
+          <a
+            href={GITHUB}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent"
+          >
+            <GitHubIcon className="h-4 w-4" /> GitHub
+          </a>
+        </div>
         <p className="mt-6 text-xs text-muted">
           Prefer a form? Add a free Web3Forms key in{" "}
           <span className="font-mono">data/projects.ts</span> and it appears here
@@ -98,7 +138,12 @@ export function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
     data.append("access_key", key);
-    data.append("subject", "New portfolio inquiry from brathod1432.github.io");
+    data.append(
+      "subject",
+      selected
+        ? `${selected.label} inquiry — brathod1432.github.io`
+        : "New portfolio inquiry from brathod1432.github.io"
+    );
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -107,6 +152,8 @@ export function ContactForm() {
       const json = await res.json();
       if (json.success) {
         setStatus("success");
+        setMessage("");
+        setSelected(null);
         form.reset();
       } else {
         setStatus("error");
@@ -140,6 +187,11 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="mt-8 space-y-4 text-left">
+      {selected && (
+        <div className="text-center">
+          <SelectedChip label={selected.label} />
+        </div>
+      )}
       {/* Honeypot field — hidden from humans, catches bots */}
       <input
         type="checkbox"
@@ -186,15 +238,16 @@ export function ContactForm() {
         <textarea
           id="message"
           name="message"
+          ref={textareaRef}
           required
           rows={4}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           className="w-full resize-y rounded-lg border border-line bg-base px-4 py-2.5 text-sm text-white outline-none transition-colors placeholder:text-muted/60 focus:border-accent"
           placeholder="A few lines about your project or role…"
         />
       </div>
-      {status === "error" && (
-        <p className="text-sm text-red-400">{error}</p>
-      )}
+      {status === "error" && <p className="text-sm text-red-400">{error}</p>}
       <div className="flex flex-wrap items-center gap-3">
         <button
           type="submit"

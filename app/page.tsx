@@ -15,6 +15,7 @@ import { About } from "@/components/About";
 import { Impact } from "@/components/Impact";
 import { Testimonials } from "@/components/Testimonials";
 import { ContactForm } from "@/components/ContactForm";
+import { EngagementTypes } from "@/components/EngagementTypes";
 import { SiteNav } from "@/components/SiteNav";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -224,6 +225,11 @@ function Services() {
               ))}
             </div>
           </div>
+        </Reveal>
+
+        {/* Ways to engage */}
+        <Reveal delay={120}>
+          <EngagementTypes />
         </Reveal>
 
         {/* Principles + CTA */}
