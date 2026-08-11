@@ -20,6 +20,58 @@ export type Category = {
 export const GITHUB = "https://github.com/brathod1432";
 export const LINKEDIN = "https://www.linkedin.com/in/rbrijesh07/";
 export const EMAIL = "bgrathod00@gmail.com";
+export const SITE_URL = "https://brathod1432.github.io";
+export const CV_PATH = "/brijesh-rathod-cv.pdf";
+
+export const siteConfig = {
+  name: "Brijesh Rathod",
+  url: SITE_URL,
+  // Paste your free Web3Forms access key (get one in ~30s at https://web3forms.com,
+  // no signup — just verify your email). Until set, the contact form gracefully
+  // falls back to email + LinkedIn buttons.
+  web3formsKey: "",
+  // Set to your verified domain to enable cookieless, GDPR-friendly Plausible
+  // analytics (e.g. "brathod1432.github.io"). Empty = analytics disabled.
+  plausibleDomain: "",
+};
+
+export const metrics: { value: string; label: string }[] = [
+  { value: "4wk → 5d", label: "Regression cycle cut at Dell" },
+  { value: "6+ yrs", label: "Quality & automation engineering" },
+  { value: "396", label: "Automated tests in one toolkit" },
+  { value: "1,050+", label: "Reusable AI assets indexed" },
+];
+
+export type CaseStudy = {
+  title: string;
+  context: string;
+  problem: string;
+  approach: string[];
+  result: string;
+  tags: string[];
+};
+
+export const caseStudies: CaseStudy[] = [
+  {
+    title: "Cutting enterprise regression from ~4 weeks to 5 days",
+    context: "Dell Technologies · Enterprise storage QA",
+    problem:
+      "Full regression across Linux, VMware ESXi, storage, and networking took roughly four weeks — a bottleneck that slowed every release and delayed feedback to engineering.",
+    approach: [
+      "Designed a test-orchestration framework that auto-selects sanity / regression / full coverage by software version, release type, and technical risk",
+      "Built Jenkins + Groovy CI/CD so GitHub changes trigger standardized validation pipelines",
+      "Added parallel, infrastructure-aware scheduling and qTest-synced reporting for live release visibility",
+    ],
+    result:
+      "End-to-end regression dropped from ~4 weeks to ~5 working days, with reliable release-readiness reporting and far faster feedback to engineering.",
+    tags: ["Python", "Jenkins/Groovy", "CI/CD", "Test Orchestration"],
+  },
+];
+
+// Add real quotes here (e.g. LinkedIn recommendations). Left empty on purpose —
+// the section only renders when at least one testimonial is present.
+export type Testimonial = { quote: string; name: string; role: string };
+export const testimonials: Testimonial[] = [];
 
 export const categories: Category[] = [
   {

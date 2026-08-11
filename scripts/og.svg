@@ -1,0 +1,46 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0a0a0f"/>
+      <stop offset="0.55" stop-color="#12121a"/>
+      <stop offset="1" stop-color="#1a1a26"/>
+    </linearGradient>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.25" cy="0.15" r="0.6">
+      <stop stop-color="#7c5cff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- logo -->
+  <rect x="72" y="66" width="76" height="76" rx="18" fill="none" stroke="url(#grad)" stroke-width="3"/>
+  <text x="110" y="118" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#22d3ee" text-anchor="middle">BR</text>
+  <text x="168" y="114" font-family="Arial, sans-serif" font-size="26" fill="#a8a8c2">brathod1432.github.io</text>
+
+  <!-- eyebrow -->
+  <text x="72" y="330" font-family="Arial, sans-serif" font-size="27" letter-spacing="4" fill="#22d3ee">AI · ROBOTICS · FULL-STACK</text>
+
+  <!-- name -->
+  <text x="70" y="415" font-family="Arial, sans-serif" font-size="82" font-weight="800" fill="#ffffff">Brijesh Rathod</text>
+
+  <!-- tagline -->
+  <text x="72" y="470" font-family="Arial, sans-serif" font-size="33" fill="#c9c9dc">I build AI systems, robotics tooling, and production web</text>
+  <text x="72" y="512" font-family="Arial, sans-serif" font-size="33" fill="#c9c9dc">platforms that are reliably good.</text>
+
+  <!-- chips -->
+  <g font-family="Arial, sans-serif" font-size="23" fill="#c9c9dc">
+    <rect x="72" y="548" width="290" height="46" rx="23" fill="none" stroke="#26263a"/>
+    <text x="92" y="577">LLM Evaluation &amp; Safety</text>
+    <rect x="378" y="548" width="150" height="46" rx="23" fill="none" stroke="#26263a"/>
+    <text x="398" y="577">Robotics</text>
+    <rect x="544" y="548" width="130" height="46" rx="23" fill="none" stroke="#26263a"/>
+    <text x="564" y="577">Next.js</text>
+    <rect x="690" y="548" width="120" height="46" rx="23" fill="none" stroke="#26263a"/>
+    <text x="710" y="577">Python</text>
+  </g>
+</svg>

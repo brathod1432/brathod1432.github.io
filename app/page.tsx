@@ -6,10 +6,15 @@ import {
   GITHUB,
   LINKEDIN,
   EMAIL,
+  CV_PATH,
   Service,
 } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { About } from "@/components/About";
+import { Impact } from "@/components/Impact";
+import { Testimonials } from "@/components/Testimonials";
+import { ContactForm } from "@/components/ContactForm";
+import { SiteNav } from "@/components/SiteNav";
 import { Reveal } from "@/components/Reveal";
 import {
   GitHubIcon,
@@ -63,54 +68,6 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Nav() {
-  return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/60 bg-base/70 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="font-mono text-sm font-semibold tracking-tight text-white">
-          brijesh<span className="text-accent">.rathod</span>
-        </a>
-        <div className="hidden items-center gap-7 text-sm text-muted md:flex">
-          <a href="#about" className="transition-colors hover:text-white">
-            About
-          </a>
-          <a href="#services" className="transition-colors hover:text-white">
-            Services
-          </a>
-          {categories.map((c) => (
-            <a key={c.id} href={`#${c.id}`} className="transition-colors hover:text-white">
-              {c.label.split(" ")[0]}
-            </a>
-          ))}
-          <a href="#contact" className="transition-colors hover:text-white">
-            Contact
-          </a>
-        </div>
-        <div className="flex items-center gap-2">
-          <a
-            href={LINKEDIN}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="rounded-full border border-line p-2 text-muted transition-colors hover:border-accent hover:text-white"
-          >
-            <LinkedInIcon className="h-4 w-4" />
-          </a>
-          <a
-            href={GITHUB}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="rounded-full border border-line p-2 text-muted transition-colors hover:border-accent hover:text-white"
-          >
-            <GitHubIcon className="h-4 w-4" />
-          </a>
-        </div>
-      </nav>
-    </header>
-  );
-}
-
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-grid">
@@ -134,10 +91,10 @@ function Hero() {
           tooling, and production web platforms.
         </h1>
         <p className="mt-6 max-w-2xl animate-fade-up text-lg leading-relaxed text-muted">
-          Engineer working across LLM evaluation &amp; safety, robot-arm
-          kinematics, and security-first full-stack products. I care about the
-          hard part — making systems reliably good, testable, and ready for
-          production.
+          QA Team Lead &amp; Senior Automation Engineer at Dell Technologies,
+          working across LLM evaluation &amp; safety, robot-arm kinematics, and
+          security-first full-stack products. I care about the hard part —
+          making systems reliably good, testable, and ready for production.
         </p>
         <div className="mt-8 flex animate-fade-up flex-wrap items-center gap-3">
           <a
@@ -151,6 +108,13 @@ function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-accent2"
           >
             <MailIcon className="h-4 w-4" /> Get in touch
+          </a>
+          <a
+            href={CV_PATH}
+            download
+            className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-accent"
+          >
+            Download CV
           </a>
         </div>
 
@@ -241,11 +205,12 @@ function Services() {
 export default function Home() {
   return (
     <>
-      <Nav />
+      <SiteNav />
       <main>
         <Hero />
         <About />
         <Services />
+        <Impact />
 
         {categories.map((cat) => (
           <section key={cat.id} id={cat.id} className="scroll-mt-20 border-t border-line/50 py-20">
@@ -316,12 +281,14 @@ export default function Home() {
           </div>
         </section>
 
+        <Testimonials />
+
         <section id="contact" className="scroll-mt-20 border-t border-line/50 py-24">
-          <div className="mx-auto max-w-4xl px-6">
+          <div className="mx-auto max-w-3xl px-6">
             <Reveal>
-              <div className="relative overflow-hidden rounded-3xl border border-line bg-gradient-to-b from-surface2 to-surface p-10 text-center md:p-14">
+              <div className="relative overflow-hidden rounded-3xl border border-line bg-gradient-to-b from-surface2 to-surface p-8 md:p-12">
                 <div className="pointer-events-none absolute left-1/2 top-[-40%] h-[320px] w-[520px] -translate-x-1/2 rounded-full bg-accent/20 blur-[130px]" />
-                <div className="relative">
+                <div className="relative text-center">
                   <Eyebrow>Contact</Eyebrow>
                   <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
                     Let&apos;s build something reliable.
@@ -330,30 +297,9 @@ export default function Home() {
                     Have a project in AI, robotics, or full-stack? Tell me what
                     you&apos;re working on and I&apos;ll get back to you within a day.
                   </p>
-                  <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                    <a
-                      href={`mailto:${EMAIL}?subject=Project%20inquiry`}
-                      className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
-                    >
-                      <MailIcon className="h-4 w-4" /> {EMAIL}
-                    </a>
-                    <a
-                      href={LINKEDIN}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent2"
-                    >
-                      <LinkedInIcon className="h-4 w-4 text-[#0a66c2]" /> Connect on LinkedIn
-                    </a>
-                    <a
-                      href={GITHUB}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent"
-                    >
-                      <GitHubIcon className="h-4 w-4" /> @brathod1432
-                    </a>
-                  </div>
+                </div>
+                <div className="relative mx-auto max-w-xl">
+                  <ContactForm />
                 </div>
               </div>
             </Reveal>

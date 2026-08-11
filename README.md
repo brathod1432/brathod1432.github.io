@@ -27,8 +27,43 @@ npm run build    # static site emitted to ./out
 
 ## Editing content
 
-All project content lives in [`data/projects.ts`](data/projects.ts) — edit the
-`categories` and `privateWork` arrays to add, remove, or update projects.
+All content lives in [`data/projects.ts`](data/projects.ts) — edit the
+`categories`, `privateWork`, `services`, `caseStudies`, `experience`,
+`education`, and `testimonials` arrays to update the site.
 
 Deployment is automatic: every push to `main` triggers
 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+## Enabling the contact form (optional)
+
+The contact section works out of the box with email + LinkedIn buttons. To turn
+on the actual form, add a free [Web3Forms](https://web3forms.com) access key
+(no signup — just verify your email) to `siteConfig.web3formsKey` in
+[`data/projects.ts`](data/projects.ts). The form includes a honeypot field for
+spam protection and posts directly to Web3Forms (no backend needed).
+
+## Enabling analytics (optional)
+
+Set `siteConfig.plausibleDomain` to your domain to load
+[Plausible](https://plausible.io) — cookieless and GDPR-friendly (no consent
+banner required). Leave empty to disable.
+
+## Updating the CV and OG image
+
+- **CV:** replace [`public/brijesh-rathod-cv.pdf`](public/brijesh-rathod-cv.pdf).
+- **Social preview image:** edit [`scripts/og.svg`](scripts/og.svg), then
+  regenerate with `npm i sharp --no-save && node -e "const s=require('sharp'),f=require('fs');s(f.readFileSync('scripts/og.svg')).png().toFile('public/og.png')"`.
+
+## Security notes
+
+GitHub Pages cannot set HTTP response headers. A post-build script
+([`scripts/inject-security-meta.mjs`](scripts/inject-security-meta.mjs)) injects
+a Content-Security-Policy and Referrer-Policy via `<meta>` tags into every
+exported HTML file. Transport is protected by HTTPS + HSTS (set by GitHub).
+
+Header-only protections — `X-Content-Type-Options`, `X-Frame-Options`, and CSP
+`frame-ancestors` — **cannot** be applied on GitHub Pages. To get full headers,
+host the same static export on Cloudflare Pages / Netlify / Vercel with a
+`_headers` file.
+
+[Dependabot](.github/dependabot.yml) keeps npm and Actions dependencies patched.
