@@ -7,9 +7,9 @@ import {
   GITHUB,
   LINKEDIN,
   EMAIL,
-  CV_PATH,
   Service,
 } from "@/data/projects";
+import { CvDownload } from "@/components/CvDownload";
 import { ProjectCard } from "@/components/ProjectCard";
 import { About } from "@/components/About";
 import { Impact } from "@/components/Impact";
@@ -114,13 +114,7 @@ function Hero() {
           >
             <MailIcon className="h-4 w-4" /> Get in touch
           </a>
-          <a
-            href={CV_PATH}
-            download
-            className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-fg transition-colors hover:border-accent"
-          >
-            Download CV
-          </a>
+          <CvDownload />
         </div>
 
         <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6">

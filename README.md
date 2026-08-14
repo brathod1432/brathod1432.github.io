@@ -50,7 +50,11 @@ banner required). Leave empty to disable.
 
 ## Updating the CV and OG image
 
-- **CV:** replace [`public/brijesh-rathod-cv.pdf`](public/brijesh-rathod-cv.pdf).
+- **CV:** two variants are published and both are offered wherever the CV is
+  linked — [`public/brijesh_rathod.pdf`](public/brijesh_rathod.pdf) (short) and
+  [`public/brijesh_rathod_202608_Detailed.pdf`](public/brijesh_rathod_202608_Detailed.pdf)
+  (detailed). Replace either file, or point `cvVariants` in
+  [`data/projects.ts`](data/projects.ts) at new filenames.
 - **Social preview image:** edit [`scripts/og.svg`](scripts/og.svg), then
   regenerate with `npm i sharp --no-save && node -e "const s=require('sharp'),f=require('fs');s(f.readFileSync('scripts/og.svg')).png().toFile('public/og.png')"`.
 

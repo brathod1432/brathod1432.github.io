@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { siteConfig, EMAIL, LINKEDIN, GITHUB, CV_PATH } from "@/data/projects";
+import { siteConfig, EMAIL, LINKEDIN, GITHUB } from "@/data/projects";
+import { CvDownload } from "@/components/CvDownload";
 import {
   MailIcon,
   LinkedInIcon,
@@ -106,13 +107,7 @@ export function ContactForm() {
           >
             <LinkedInIcon className="h-4 w-4 text-[#0a66c2]" /> LinkedIn
           </a>
-          <a
-            href={CV_PATH}
-            download
-            className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent"
-          >
-            Download CV
-          </a>
+          <CvDownload />
           <a
             href={GITHUB}
             target="_blank"
@@ -253,13 +248,7 @@ export function ContactForm() {
           {status !== "sending" && <ArrowIcon className="h-4 w-4" />}
         </button>
         <CopyEmail />
-        <a
-          href={CV_PATH}
-          download
-          className="inline-flex items-center gap-2 rounded-full border border-line bg-base px-5 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent2"
-        >
-          Download CV
-        </a>
+        <CvDownload />
       </div>
       <p className="text-xs text-muted">
         Or reach me on{" "}

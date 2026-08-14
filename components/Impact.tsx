@@ -1,4 +1,4 @@
-import { metrics, caseStudies } from "@/data/projects";
+import { metrics, caseStudies, clientWork } from "@/data/projects";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
 import { CheckIcon } from "@/components/icons";
@@ -104,6 +104,53 @@ export function Impact() {
             </Reveal>
           ))}
         </div>
+
+        {/* Anonymized freelance / client engagements */}
+        {clientWork.length > 0 && (
+          <div className="mt-16">
+            <Reveal>
+              <div className="max-w-2xl">
+                <Eyebrow>Client work</Eyebrow>
+                <h3 className="mt-4 text-xl font-bold tracking-tight text-fg sm:text-2xl">
+                  Freelance engagements
+                </h3>
+                <p className="mt-3 text-sm text-muted">
+                  A selection of the freelance work behind the number above.
+                  Client names are withheld — each entry describes the type of
+                  engagement rather than the account.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {clientWork.map((c, i) => (
+                <Reveal key={c.sector} delay={i * 80}>
+                  <div className="h-full rounded-2xl border border-line bg-surface p-6">
+                    <p className="font-mono text-xs uppercase tracking-wider text-accent2">
+                      {c.engagement}
+                    </p>
+                    <h4 className="mt-2 text-base font-semibold text-fg">
+                      {c.sector}
+                    </h4>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      {c.summary}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {c.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-md border border-line bg-base px-2 py-1 text-xs text-muted"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

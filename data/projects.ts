@@ -21,7 +21,34 @@ export const GITHUB = "https://github.com/brathod1432";
 export const LINKEDIN = "https://www.linkedin.com/in/rbrijesh07/";
 export const EMAIL = "bgrathod00@gmail.com";
 export const SITE_URL = "https://brathod1432.github.io";
-export const CV_PATH = "/brijesh-rathod-cv.pdf";
+
+// Two CV variants are published. The short one is the default download; the
+// detailed one is offered alongside it everywhere the CV is linked.
+export const CV_SHORT_PATH = "/brijesh_rathod.pdf";
+export const CV_DETAILED_PATH = "/brijesh_rathod_202608_Detailed.pdf";
+
+export type CvVariant = {
+  href: string;
+  label: string;
+  /** Used for the download filename and the accessible label. */
+  fileName: string;
+  description: string;
+};
+
+export const cvVariants: CvVariant[] = [
+  {
+    href: CV_SHORT_PATH,
+    label: "Download CV",
+    fileName: "brijesh-rathod-cv.pdf",
+    description: "Short CV (PDF)",
+  },
+  {
+    href: CV_DETAILED_PATH,
+    label: "Detailed",
+    fileName: "brijesh-rathod-cv-detailed.pdf",
+    description: "Detailed CV (PDF)",
+  },
+];
 
 export const siteConfig = {
   name: "Brijesh Rathod",
@@ -36,6 +63,7 @@ export const siteConfig = {
 };
 
 export const metrics: { value: string; label: string }[] = [
+  { value: "10+", label: "Businesses supported" },
   { value: "6+ yrs", label: "Quality & automation engineering" },
   { value: "396", label: "Automated tests in one toolkit" },
   { value: "1,050+", label: "Reusable AI assets indexed" },
@@ -67,8 +95,44 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
-// Add real quotes here (e.g. LinkedIn recommendations). Left empty on purpose —
-// the section only renders when at least one testimonial is present.
+// Anonymized freelance / client engagements. Client names are withheld
+// deliberately — each entry describes the type of work delivered, not a
+// named account. Keep these factual: no invented figures or outcomes.
+export type ClientEngagement = {
+  sector: string;
+  engagement: string;
+  summary: string;
+  tags: string[];
+};
+
+export const clientWork: ClientEngagement[] = [
+  {
+    sector: "Game studios",
+    engagement: "Pre-release QA",
+    summary:
+      "Functional, exploratory and regression passes across pre-release builds — covering core gameplay flows, interface behaviour and edge cases, with every defect written up to be reproducible: exact steps, expected vs. actual behaviour and supporting evidence.",
+    tags: ["Functional QA", "Exploratory Testing", "Defect Reporting"],
+  },
+  {
+    sector: "Web application teams",
+    engagement: "UI & user-flow validation",
+    summary:
+      "End-to-end validation of web application journeys — sign-up, navigation, forms and error states — checking interface behaviour against intent across browsers, and reporting issues in a form engineering could act on without a follow-up call.",
+    tags: ["Web Testing", "User Flows", "Cross-Browser"],
+  },
+  {
+    sector: "Small business & product sites",
+    engagement: "Usability & quality review",
+    summary:
+      "Structured usability and product-quality reviews of live sites and web UIs, surfacing broken flows, confusing interactions and interface inconsistencies, prioritised so the highest-impact fixes could ship first.",
+    tags: ["Usability", "UI Review", "Quality Audit"],
+  },
+];
+
+// Real quotes only. Add entries here as clients and colleagues provide them
+// (Fiverr reviews, email replies, LinkedIn recommendations) — quote them
+// verbatim and attribute them accurately. The section stays hidden while this
+// array is empty, so the site never shows placeholder or invented praise.
 export type Testimonial = { quote: string; name: string; role: string };
 export const testimonials: Testimonial[] = [];
 
