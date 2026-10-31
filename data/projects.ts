@@ -423,22 +423,6 @@ export const categories: Category[] = [
       "Test strategy, automation harnesses, and privacy-first tooling — the quality discipline behind everything else I build.",
     projects: [
       {
-        name: "Sporty_Test",
-        title: "Sporty Test Harness",
-        tagline: "Risk-based QA and automation for a betting flow",
-        description:
-          "A test strategy and automation suite for a single-bet placement flow: prioritised manual scenarios, 42 automated checks across API and UI, and a vault of documented defects with reproduction steps and evidence.",
-        highlights: [
-          "42 tests: 16 API, 1 end-to-end UI journey, 25 UI regression",
-          "Latest free run: 28 passed, 5 skipped, 9 expected failures, 0 failed",
-          "10 documented test cases with priority, risk, and cost",
-          "22 filed defects (15 bugs, 7 epics) with evidence",
-        ],
-        tech: ["Python", "pytest", "Selenium", "API Testing"],
-        repo: "Sporty_Test",
-        language: "Python",
-      },
-      {
         name: "RBG_Candidate",
         title: "RBG Candidate",
         tagline: "Privacy-first AI form-filling extension",
