@@ -17,6 +17,11 @@ import { Testimonials } from "@/components/Testimonials";
 import { ContactForm } from "@/components/ContactForm";
 import { EngagementTypes } from "@/components/EngagementTypes";
 import { SiteNav } from "@/components/SiteNav";
+import { HeroMotion } from "@/components/HeroMotion";
+import { HeroOrbit } from "@/components/HeroOrbit";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { CardGlow } from "@/components/CardGlow";
+import { TechMarquee } from "@/components/TechMarquee";
 import { Reveal } from "@/components/Reveal";
 import {
   GitHubIcon,
@@ -77,9 +82,11 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-grid">
-      <div className="pointer-events-none absolute left-1/4 top-[-10%] h-[420px] w-[560px] -translate-x-1/2 rounded-full bg-accent/20 blur-[150px]" />
-      <div className="pointer-events-none absolute right-0 top-[10%] h-[360px] w-[460px] translate-x-1/3 rounded-full bg-accent2/10 blur-[150px]" />
+      <div className="float-a pointer-events-none absolute left-1/4 top-[-10%] h-[420px] w-[560px] rounded-full bg-accent/20 blur-[150px]" />
+      <div className="float-b pointer-events-none absolute right-0 top-[10%] h-[360px] w-[460px] rounded-full bg-accent2/10 blur-[150px]" />
+      <HeroMotion />
       <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-40 md:pt-48">
+        <HeroOrbit />
         <div className="animate-fade-up">
           <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
             <span className="relative flex h-2 w-2">
@@ -172,7 +179,7 @@ function Services() {
             const Icon = serviceIcons[s.icon];
             return (
               <Reveal key={s.title} delay={i * 90}>
-                <div className="group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface2 hover:shadow-[0_20px_60px_-25px_rgba(124,92,255,0.5)]">
+                <div className="glow-card group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface2 hover:shadow-[0_20px_60px_-25px_rgba(124,92,255,0.5)]">
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <span
                     aria-hidden="true"
@@ -268,9 +275,12 @@ function Services() {
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
+      <CardGlow />
       <SiteNav />
       <main>
         <Hero />
+        <TechMarquee />
         <About />
         <Services />
         <Impact />

@@ -54,11 +54,69 @@ body {
   background: linear-gradient(
     90deg,
     rgb(var(--c-accent)),
-    rgb(var(--c-accent2))
+    rgb(var(--c-accent2)),
+    rgb(var(--c-accent))
   );
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: gradient-shift 7s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-shift {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+/* Drifting hero glows */
+@keyframes float-a {
+  0%, 100% { transform: translate(-50%, 0) scale(1); }
+  50% { transform: translate(calc(-50% + 40px), 24px) scale(1.08); }
+}
+@keyframes float-b {
+  0%, 100% { transform: translate(33%, 0) scale(1); }
+  50% { transform: translate(calc(33% - 50px), -26px) scale(1.1); }
+}
+.float-a { animation: float-a 16s ease-in-out infinite; }
+.float-b { animation: float-b 19s ease-in-out infinite; }
+
+/* Hero orbit */
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+@keyframes orbit-spin-rev { to { transform: rotate(-360deg); } }
+@keyframes orbit-counter {
+  from { transform: rotate(calc(var(--a) * -1)); }
+  to { transform: rotate(calc(var(--a) * -1 - 360deg)); }
+}
+@keyframes orbit-pulse {
+  0%, 100% { box-shadow: 0 0 60px -8px rgb(var(--c-accent) / 0.8); }
+  50% { box-shadow: 0 0 90px -2px rgb(var(--c-accent2) / 0.7); }
+}
+.orbit-spin { animation: orbit-spin 46s linear infinite; }
+.orbit-spin-rev { animation: orbit-spin-rev 30s linear infinite; }
+.orbit-counter { animation: orbit-counter 46s linear infinite; }
+.orbit-pulse { animation: orbit-pulse 4s ease-in-out infinite; }
+
+/* Tech ticker */
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 55s linear infinite; }
+.marquee-mask:hover .marquee-track { animation-play-state: paused; }
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* Cursor spotlight on cards (position fed by <CardGlow />) */
+.glow-card {
+  --mx: 50%;
+  --my: 50%;
+}
+.glow-card:hover {
+  background-image: radial-gradient(
+    420px circle at var(--mx) var(--my),
+    rgb(var(--c-accent) / 0.16),
+    transparent 65%
+  );
 }
 
 ::selection {
@@ -81,6 +139,21 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .gradient-text,
+  .float-a,
+  .float-b,
+  .orbit-spin,
+  .orbit-spin-rev,
+  .orbit-counter,
+  .orbit-pulse,
+  .marquee-track {
+    animation: none;
+  }
+  .marquee-track {
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
   html {
     scroll-behavior: auto;
   }
