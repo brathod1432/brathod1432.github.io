@@ -542,7 +542,7 @@ export const experience: TimelineItem[] = [
     current: true,
   },
   {
-    period: "Jan 2023 — Sep 2026",
+    period: "Jan 2023 — Oct 2026",
     role: "Automation Team Lead & Senior Software Automation Engineer",
     org: "Dell Technologies",
     summary:
