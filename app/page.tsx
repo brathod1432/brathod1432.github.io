@@ -24,6 +24,7 @@ import { CardGlow } from "@/components/CardGlow";
 import { CursorFx } from "@/components/CursorFx";
 import { PointerEffects } from "@/components/PointerEffects";
 import { TechMarquee } from "@/components/TechMarquee";
+import { ScrollCue } from "@/components/ScrollCue";
 import { Reveal } from "@/components/Reveal";
 import {
   GitHubIcon,
@@ -155,6 +156,7 @@ function Hero() {
           ))}
         </div>
       </div>
+      <ScrollCue />
     </section>
   );
 }

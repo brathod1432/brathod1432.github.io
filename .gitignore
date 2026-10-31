@@ -7,3 +7,6 @@ next-env.d.ts
 .DS_Store
 .env*
 npm-debug.log*
+
+# Generated at build time
+/data/build-meta.ts

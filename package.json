@@ -8,7 +8,8 @@
     "build": "next build",
     "postbuild": "node scripts/inject-security-meta.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prebuild": "node scripts/gen-lastmod.mjs"
   },
   "dependencies": {
     "next": "14.2.35",

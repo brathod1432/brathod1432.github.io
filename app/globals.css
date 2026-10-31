@@ -185,6 +185,35 @@ body {
   background: rgb(var(--c-accent) / 0.35);
 }
 
+/* Keyboard focus — mouse users see nothing, keyboard users get a clear ring.
+   Extends the site's interactivity to non-pointer navigation. */
+:focus-visible {
+  outline: 2px solid rgb(var(--c-accent2));
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible {
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgb(var(--c-accent) / 0.25);
+}
+.glow-card:focus-within {
+  border-color: rgb(var(--c-accent) / 0.5);
+}
+
+/* Hero scroll cue */
+@keyframes scroll-cue {
+  0% { transform: translateY(0); opacity: 0; }
+  40% { opacity: 1; }
+  80% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(12px); opacity: 0; }
+}
+.scroll-cue-dot {
+  animation: scroll-cue 1.8s ease-in-out infinite;
+}
+
 /* Thin scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -213,8 +242,12 @@ body {
   .orbit-spin-rev,
   .orbit-counter,
   .orbit-pulse,
+  .scroll-cue-dot,
   .marquee-track {
     animation: none;
+  }
+  .scroll-cue-dot {
+    opacity: 1;
   }
   .marquee-track {
     flex-wrap: wrap;
