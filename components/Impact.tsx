@@ -34,7 +34,7 @@ export function Impact() {
         </Reveal>
 
         {/* Metrics */}
-        <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-3">
           {metrics.map((m, i) => (
             <Reveal key={m.label} delay={i * 70}>
               <div className="rounded-2xl border border-line bg-surface p-6 text-center transition-colors hover:border-accent/40">

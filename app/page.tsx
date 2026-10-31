@@ -35,13 +35,15 @@ const publicCount = categories.reduce((n, c) => n + c.projects.length, 0);
 
 const stats = [
   { value: `${publicCount}`, label: "Open-source projects" },
-  { value: "4", label: "Domains" },
+  { value: `${categories.length}`, label: "Domains" },
   { value: "Python · TS", label: "Primary stacks" },
 ];
 
 const skills = [
   "LLM Evaluation & Safety",
-  "AI Agents",
+  "AI Agents & Orchestration",
+  "Agent Runbooks & Playbooks",
+  "MCP",
   "FastAPI",
   "RAG",
   "Python",
@@ -52,6 +54,8 @@ const skills = [
   "NumPy / ML",
   "Observability",
   "CI/CD",
+  "Test Automation",
+  "Playwright",
 ];
 
 const serviceIcons: Record<Service["icon"], (p: { className?: string }) => JSX.Element> = {
@@ -89,14 +93,17 @@ function Hero() {
           Hi, I&apos;m Brijesh Rathod
         </p>
         <h1 className="mt-4 max-w-3xl animate-fade-up text-4xl font-bold leading-tight tracking-tight text-fg sm:text-5xl md:text-6xl">
-          I build <span className="gradient-text">AI systems</span>, Robotics
-          tooling, and production web platforms.
+          I build <span className="gradient-text">AI systems</span> and
+          agents, robotics tooling, and production web platforms.
         </h1>
         <p className="mt-6 max-w-2xl animate-fade-up text-lg leading-relaxed text-muted">
-          Automation Team Lead &amp; Senior Software Automation Engineer at{" "}
-          <span className="font-medium text-body">Dell Technologies</span>.
-          I work across LLM evaluation &amp; safety, robot-arm kinematics, and
-          security-first full-stack products — focused on the hard part:{" "}
+          Senior Full-Stack Engineer at{" "}
+          <span className="font-medium text-body">Capgemini</span>, developing
+          and integrating AI solutions on the{" "}
+          <span className="font-medium text-body">Neo</span> project. Previously
+          led automation at Dell Technologies. I work across AI agents, LLM
+          evaluation &amp; safety, robot-arm kinematics, and security-first
+          full-stack products — focused on the hard part:{" "}
           <span className="font-medium text-body">
             making systems reliably good, testable, and production-ready.
           </span>
@@ -309,7 +316,7 @@ export default function Home() {
                 </p>
               </div>
             </Reveal>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {privateWork.map((w, i) => (
                 <Reveal key={w.title} delay={i * 90}>
                   <div className="h-full rounded-2xl border border-dashed border-line bg-surface/60 p-6">

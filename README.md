@@ -1,7 +1,8 @@
 # brathod1432.github.io
 
 Personal portfolio of **Brijesh Rathod** — showcasing open-source work across
-AI/LLM engineering, robotics, machine learning, and full-stack web platforms.
+AI agents and LLM engineering, quality automation, robotics, machine learning, and
+full-stack web platforms.
 
 **Live:** https://brathod1432.github.io
 

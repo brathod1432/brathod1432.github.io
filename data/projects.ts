@@ -65,7 +65,9 @@ export const siteConfig = {
 export const metrics: { value: string; label: string }[] = [
   { value: "10+", label: "Businesses supported" },
   { value: "6+ yrs", label: "Quality & automation engineering" },
-  { value: "396", label: "Automated tests in one toolkit" },
+  { value: "48", label: "Agent runbooks in one open-source library" },
+  { value: "1,016", label: "Tests passing in that runbook library" },
+  { value: "396", label: "Automated tests in the robotics design toolkit" },
   { value: "1,050+", label: "Reusable AI assets indexed" },
 ];
 
@@ -192,6 +194,96 @@ export const categories: Category[] = [
         tech: ["Python", "FastAPI", "Observability", "OpenAI API"],
         repo: "NvidiaModelBridge",
         language: "Python",
+        featured: true,
+      },
+    ],
+  },
+  {
+    id: "agents",
+    label: "AI Agents & Operations",
+    blurb:
+      "Runbooks, playbooks, skills, and orchestration that make autonomous agents operable, governed, and repeatable.",
+    projects: [
+      {
+        name: "ai-runbooks",
+        title: "awesome-ai-runbooks",
+        tagline: "Operational runbooks for autonomous AI agents",
+        description:
+          "An open-source library of vendor-neutral operational runbooks for autonomous AI agents — SRE-style discipline applied to agents, with every runbook written as a complete operational contract: objective, context, validation, and reporting.",
+        highlights: [
+          "48 runbooks with a quality-scored validation framework",
+          "1,016 automated tests keep the library honest",
+          "Vendor-neutral: Devin, AutoGen, LangGraph, MCP-enabled agents and more",
+          "Governance, security scoring, and enterprise-readiness reporting built in",
+        ],
+        tech: ["AI Agents", "Runbooks", "MCP", "Validation"],
+        repo: "ai-runbooks",
+        language: "Markdown",
+        featured: true,
+      },
+      {
+        name: "ai-agent-playbooks",
+        title: "AI Agent Playbooks",
+        tagline: "Evidence-first playbooks for coding agents",
+        description:
+          "Named, repeatable procedures that AI coding agents follow to solve real engineering problems — evidence-first, verification-mandatory, and safe by default, so the same request gets the same quality of investigation every run.",
+        highlights: [
+          "11 playbooks, each with per-agent instructions",
+          "Works with Claude Code, Devin, Cursor, OpenAI Codex, and Gemini CLI",
+          "Every fix proven against a baseline; rollback and escalation defined",
+          "Validated in CI against a published playbook standard (v1.0)",
+        ],
+        tech: ["AI Agents", "Playbooks", "Developer Tools", "CI/CD"],
+        repo: "ai-agent-playbooks",
+        language: "Markdown",
+      },
+      {
+        name: "oc_toolkit",
+        title: "oc-toolkit",
+        tagline: "Multi-agent toolkit with an intelligent orchestrator",
+        description:
+          "Ready-to-use agents, sub-agents, and skills for Open Code. Copy the folders in, restart, and everything is auto-discovered — coordinated by RBG_Runner, an orchestrator that maps agent dependencies and triggers them on schedules or conditions.",
+        highlights: [
+          "12 agents: planning, strategy, research, outreach, support, finance, code, and deployment",
+          "RBG_Runner: discovery, dependency graph, and conditional triggering",
+          "Hybrid scheduling: self-triggering agents or user-defined cron",
+          "Copy-and-go setup — no package installation",
+        ],
+        tech: ["AI Agents", "Orchestration", "Open Code", "Automation"],
+        repo: "oc_toolkit",
+        language: "Markdown",
+      },
+      {
+        name: "agent-studio",
+        title: "Agent Studio",
+        tagline: "Local-first, provider-agnostic agent workspace",
+        description:
+          "Configure an LLM provider — NVIDIA, OpenAI, Ollama, or any OpenAI-compatible endpoint — and chat with an agent whose history is remembered and stored locally. In early development: provider setup and the conversational runtime are implemented and tested.",
+        highlights: [
+          "Runs fully offline against local models; no telemetry",
+          "API keys stored by reference — never written, logged, or serialized",
+          "Conversations saved as human-readable, resumable JSON",
+          "Pure Node.js with zero runtime dependencies",
+        ],
+        tech: ["TypeScript", "Node.js", "LLM Providers", "Local-first"],
+        repo: "agent-studio",
+        language: "TypeScript",
+      },
+      {
+        name: "ai-command-center",
+        title: "Helm — AI Command Center",
+        tagline: "Governed AI business-operations platform",
+        description:
+          "An AI business-operations platform that unifies the tools a company runs on into one explainable, governed picture. AI recommends; humans decide — every consequential action passes an approval gate and leaves an immutable audit record.",
+        highlights: [
+          "Ten specialist agents with cited, confidence-scored insights",
+          "Immutable, hash-chained audit trail; dual control for high-risk actions",
+          "RBAC, CSRF protection, rate limiting, and Zod-validated APIs",
+          "WCAG 2.1 AA targets with automated axe checks",
+        ],
+        tech: ["Next.js", "TypeScript", "RBAC", "AI Governance"],
+        repo: "ai-command-center",
+        language: "TypeScript",
         featured: true,
       },
       {
@@ -325,6 +417,62 @@ export const categories: Category[] = [
     ],
   },
   {
+    id: "quality",
+    label: "Quality Engineering & Automation",
+    blurb:
+      "Test strategy, automation harnesses, and privacy-first tooling — the quality discipline behind everything else I build.",
+    projects: [
+      {
+        name: "Sporty_Test",
+        title: "Sporty Test Harness",
+        tagline: "Risk-based QA and automation for a betting flow",
+        description:
+          "A test strategy and automation suite for a single-bet placement flow: prioritised manual scenarios, 42 automated checks across API and UI, and a vault of documented defects with reproduction steps and evidence.",
+        highlights: [
+          "42 tests: 16 API, 1 end-to-end UI journey, 25 UI regression",
+          "Latest free run: 28 passed, 5 skipped, 9 expected failures, 0 failed",
+          "10 documented test cases with priority, risk, and cost",
+          "22 filed defects (15 bugs, 7 epics) with evidence",
+        ],
+        tech: ["Python", "pytest", "Selenium", "API Testing"],
+        repo: "Sporty_Test",
+        language: "Python",
+      },
+      {
+        name: "RBG_Candidate",
+        title: "RBG Candidate",
+        tagline: "Privacy-first AI form-filling extension",
+        description:
+          "A Chrome/Edge (MV3) extension that fills job applications with NVIDIA AI through a stateless FastAPI proxy — private by design, with manual review before anything is filled.",
+        highlights: [
+          "A coordinator splits each form across 15 parallel AI workers",
+          "Local-only encrypted storage (WebCrypto PBKDF2 + AES-GCM)",
+          "Field-by-field preview — no auto-submit",
+          "Handles multi-step application flows; bring your own API key",
+        ],
+        tech: ["Chrome MV3", "TypeScript", "FastAPI", "Privacy"],
+        repo: "RBG_Candidate",
+        language: "TypeScript",
+      },
+      {
+        name: "linkedin_automation",
+        title: "LinkedIn Automation",
+        tagline: "Personal LinkedIn intelligence, safety-first",
+        description:
+          "Operates your own logged-in LinkedIn session to digest your feed, search people and jobs, score job fit, and schedule posts — with a provider-agnostic LLM and review-only defaults for anything that writes.",
+        highlights: [
+          "NVIDIA, Ollama, or OpenAI through one OpenAI-compatible client",
+          "Attach to your Chrome over CDP or run headless with Playwright",
+          "YAML workflows with a cron-based scheduler daemon",
+          "Safety layer: kill switch, arm toggle, working hours, daily quotas",
+        ],
+        tech: ["Python", "Playwright", "LLM", "Docker"],
+        repo: "linkedin_automation",
+        language: "Python",
+      },
+    ],
+  },
+  {
     id: "ml",
     label: "Machine Learning Foundations",
     blurb:
@@ -357,12 +505,12 @@ export type PrivateWork = {
 };
 
 export const about = {
-  role: "Automation Team Lead · Senior Software Automation Engineer",
+  role: "Senior Full-Stack Engineer · Capgemini (Neo)",
   location: "Warsaw, Poland",
   paragraphs: [
     "My path started in hardware and motion. I studied Mechatronics and then Robotics at the Warsaw University of Technology — living in kinematics, control systems, computer vision, and embedded design. That engineering foundation still shapes how I think: model the system, respect the constraints, and prove it works.",
     "I moved into software through quality. I began testing games and web applications, then grew from junior to senior QA — owning test strategy, defect lifecycles, and release readiness. Breaking software taught me exactly what it takes to build it so it doesn't break.",
-    "Today, at Dell Technologies, I lead automation and quality engineering for enterprise storage systems — architecting Python frameworks and Jenkins CI/CD pipelines, and cutting end-to-end regression from roughly four weeks to five days. Most recently I've been building AI-assisted, multi-agent quality engineering: the same instinct for reliability, now applied to LLMs and autonomous workflows.",
+    "Today I'm a Senior Full-Stack Engineer at Capgemini, on the Neo project, developing and integrating AI solutions. Before that, at Dell Technologies, I led automation and quality engineering for enterprise storage — architecting Python frameworks and Jenkins CI/CD pipelines, and cutting end-to-end regression from roughly four weeks to five days. Outside work I build open-source tooling for AI agents — runbooks, playbooks, orchestration, and evaluation: the same instinct for reliability, now applied to LLMs and autonomous workflows.",
   ],
 };
 
@@ -370,7 +518,7 @@ export const quickFacts: { value: string; label: string }[] = [
   { value: "6+ yrs", label: "Quality & automation" },
   { value: "M.Sc.", label: "Robotics — WUT" },
   { value: "Warsaw", label: "Poland (C2 English)" },
-  { value: "Dell", label: "Automation Team Lead" },
+  { value: "Capgemini", label: "Senior Full-Stack Engineer · Neo" },
 ];
 
 export type TimelineItem = {
@@ -385,17 +533,25 @@ export type TimelineItem = {
 
 export const experience: TimelineItem[] = [
   {
-    period: "Jan 2023 — Present",
+    period: "2026 — Present",
+    role: "Senior Full-Stack Engineer",
+    org: "Capgemini · Neo project",
+    summary:
+      "Develop and integrate AI solutions on the Neo project — building full-stack features end to end and bringing LLM and agent capabilities into production, with the testing and quality discipline from my automation background.",
+    highlights: ["develop and integrate AI solutions", "Neo project"],
+    current: true,
+  },
+  {
+    period: "Jan 2023 — 2026",
     role: "Automation Team Lead & Senior Software Automation Engineer",
     org: "Dell Technologies",
     summary:
-      "Lead automation and quality engineering for enterprise storage. Built a test-orchestration framework and AI-assisted multi-agent quality workflows, and cut end-to-end regression from ~4 weeks to 5 days. Mentor engineers and own delivery from requirements to release.",
+      "Led automation and quality engineering for enterprise storage. Built a test-orchestration framework and AI-assisted multi-agent quality workflows, and cut end-to-end regression from ~4 weeks to 5 days. Mentored engineers and owned delivery from requirements to release.",
     highlights: [
       "test-orchestration framework",
       "AI-assisted multi-agent quality workflows",
       "~4 weeks to 5 days",
     ],
-    current: true,
   },
   {
     period: "Mar 2022 — Jan 2023",
@@ -588,6 +744,12 @@ export const valueProps: string[] = [
 ];
 
 export const privateWork: PrivateWork[] = [
+  {
+    title: "ApexAssist",
+    description:
+      "A desktop on-screen task assistant: one hotkey captures what's on screen, local OCR reads it, and an AI model streams step-by-step help into a lightweight overlay. Voice notes are transcribed and answered the same way.",
+    tech: ["Tauri", "Rust", "React", "OCR"],
+  },
   {
     title: "OpsPilot",
     description:

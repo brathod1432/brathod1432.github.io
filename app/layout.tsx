@@ -9,7 +9,7 @@ import {
 } from "@/data/projects";
 
 const DESCRIPTION =
-  "Brijesh Rathod — AI/LLM, robotics, and full-stack engineer. Projects spanning LLM evaluation & safety, robot-arm kinematics, and production Next.js platforms.";
+  "Brijesh Rathod — Senior Full-Stack Engineer at Capgemini (Neo), building AI solutions. Open-source work spanning AI agents and runbooks, LLM evaluation & safety, robot-arm kinematics, test automation, and production Next.js platforms.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     "Brijesh Rathod",
     "AI engineer",
     "LLM",
+    "AI agents",
+    "agent runbooks",
+    "test automation",
+    "Capgemini",
     "robotics",
     "kinematics",
     "Next.js",
@@ -66,8 +70,8 @@ const jsonLd = {
   name: "Brijesh Rathod",
   url: SITE_URL,
   email: `mailto:${EMAIL}`,
-  jobTitle: "Automation Team Lead & Senior Software Automation Engineer",
-  worksFor: { "@type": "Organization", name: "Dell Technologies" },
+  jobTitle: "Senior Full-Stack Engineer",
+  worksFor: { "@type": "Organization", name: "Capgemini" },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Warsaw",
@@ -80,6 +84,7 @@ const jsonLd = {
   knowsAbout: [
     "LLM evaluation and safety",
     "AI agents",
+    "AI agent orchestration and runbooks",
     "Robotics and kinematics",
     "Test automation",
     "Full-stack web development",
