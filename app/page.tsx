@@ -48,8 +48,10 @@ const stats = [
 ];
 
 const skills = [
+  "AI Solution Architecture",
   "LLM Evaluation & Safety",
   "AI Agents & Orchestration",
+  "System Design",
   "Agent Runbooks & Playbooks",
   "MCP",
   "FastAPI",
@@ -110,8 +112,14 @@ function Hero() {
           Senior Full-Stack Engineer at{" "}
           <span className="font-medium text-body">Capgemini</span>, developing
           and integrating AI solutions on the{" "}
-          <span className="font-medium text-body">Neo</span> project. Previously
-          led automation at Dell Technologies. I work across AI agents, LLM
+          <span className="font-medium text-body">Neo</span> project. I also
+          work independently as a{" "}
+          <span className="font-medium text-body">
+            freelance senior AI software consultant
+          </span>
+          , designing system architectures and shipping new AI features and
+          workflows for companies. Previously led automation at Dell
+          Technologies. I work across AI agents, LLM
           evaluation &amp; safety, robot-arm kinematics, and security-first
           full-stack products — focused on the hard part:{" "}
           <span className="font-medium text-body">
@@ -177,6 +185,50 @@ function Services() {
               real systems — then leave them with something maintainable. Here&apos;s
               where I create the most value.
             </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={60}>
+          <div className="glow-card group relative mt-10 overflow-hidden rounded-2xl border border-accent/30 bg-gradient-to-br from-surface2 to-surface p-7 sm:p-8">
+            <div className="pointer-events-none absolute right-[-10%] top-[-40%] h-[260px] w-[320px] rounded-full bg-accent/20 blur-[90px]" />
+            <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="max-w-2xl">
+                <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent2">
+                  Freelance · Available now
+                </span>
+                <h3 className="mt-3 text-xl font-bold tracking-tight text-fg sm:text-2xl">
+                  Senior AI software consultant
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  I partner with companies as a freelance AI architect —
+                  designing the system architecture and building the new AI
+                  features and workflows on top of it, from first whiteboard to
+                  production.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {[
+                    "AI solution architecture",
+                    "New features & workflows",
+                    "Agentic systems & RAG",
+                    "Build-vs-buy guidance",
+                  ].map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-md border border-line bg-base px-2.5 py-1 text-xs font-medium text-body"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <a
+                href="#contact"
+                data-magnetic
+                className="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03] sm:self-center"
+              >
+                Work with me <ArrowIcon className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </Reveal>
 

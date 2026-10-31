@@ -489,12 +489,12 @@ export type PrivateWork = {
 };
 
 export const about = {
-  role: "Senior Full-Stack Engineer · Capgemini (Neo)",
+  role: "Senior Full-Stack Engineer · Capgemini (Neo) · Freelance AI Consultant",
   location: "Warsaw, Poland",
   paragraphs: [
     "My path started in hardware and motion. I studied Mechatronics and then Robotics at the Warsaw University of Technology — living in kinematics, control systems, computer vision, and embedded design. That engineering foundation still shapes how I think: model the system, respect the constraints, and prove it works.",
     "I moved into software through quality. I began testing games and web applications, then grew from junior to senior QA — owning test strategy, defect lifecycles, and release readiness. Breaking software taught me exactly what it takes to build it so it doesn't break.",
-    "Today I'm a Senior Full-Stack Engineer at Capgemini, on the Neo project, developing and integrating AI solutions. Before that, at Dell Technologies, I led automation and quality engineering for enterprise storage — architecting Python frameworks and Jenkins CI/CD pipelines, and cutting end-to-end regression from roughly four weeks to five days. Outside work I build open-source tooling for AI agents — runbooks, playbooks, orchestration, and evaluation: the same instinct for reliability, now applied to LLMs and autonomous workflows.",
+    "Today I'm a Senior Full-Stack Engineer at Capgemini, on the Neo project, developing and integrating AI solutions. Before that, at Dell Technologies, I led automation and quality engineering for enterprise storage — architecting Python frameworks and Jenkins CI/CD pipelines, and cutting end-to-end regression from roughly four weeks to five days. Outside work I build open-source tooling for AI agents — runbooks, playbooks, orchestration, and evaluation: the same instinct for reliability, now applied to LLMs and autonomous workflows. Independently, I also consult as a senior AI software architect — designing system architectures and building new AI features and workflows for companies that want them done right.",
   ],
 };
 
