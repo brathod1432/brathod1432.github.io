@@ -533,7 +533,7 @@ export type TimelineItem = {
 
 export const experience: TimelineItem[] = [
   {
-    period: "2026 — Present",
+    period: "Nov 2026 — Present",
     role: "Senior Full-Stack Engineer",
     org: "Capgemini · Neo project",
     summary:
@@ -542,7 +542,7 @@ export const experience: TimelineItem[] = [
     current: true,
   },
   {
-    period: "Jan 2023 — 2026",
+    period: "Jan 2023 — Sep 2026",
     role: "Automation Team Lead & Senior Software Automation Engineer",
     org: "Dell Technologies",
     summary:
