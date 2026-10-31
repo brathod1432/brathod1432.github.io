@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-type Particle = { x: number; y: number; vx: number; vy: number; r: number };
+type Particle = { x: number; y: number; vx: number; vy: number; r: number; ex: number; ey: number };
+type Ripple = { x: number; y: number; age: number };
 
 const LINK_DISTANCE = 130;
 const MOUSE_RADIUS = 150;
@@ -29,6 +30,7 @@ export function HeroMotion() {
     let visible = true;
     let pageVisible = !document.hidden;
     let particles: Particle[] = [];
+    let ripples: Ripple[] = [];
     const mouse = { x: -9999, y: -9999 };
     let colA = "115,85,245";
     let colB = "34,211,238";
@@ -56,6 +58,8 @@ export function HeroMotion() {
         vx: (Math.random() - 0.5) * 0.35,
         vy: (Math.random() - 0.5) * 0.35,
         r: Math.random() * 1.6 + 0.8,
+        ex: 0,
+        ey: 0,
       }));
     };
 
@@ -77,12 +81,26 @@ export function HeroMotion() {
           p.x += (mx / md) * f;
           p.y += (my / md) * f;
         }
-        p.x += p.vx;
-        p.y += p.vy;
+        p.x += p.vx + p.ex;
+        p.y += p.vy + p.ey;
+        p.ex *= 0.94; // click-burst impulse fades out
+        p.ey *= 0.94;
         if (p.x < -10) p.x = w + 10;
         else if (p.x > w + 10) p.x = -10;
         if (p.y < -10) p.y = h + 10;
         else if (p.y > h + 10) p.y = -10;
+      }
+
+      // Expanding click ripples
+      ripples = ripples.filter((rp) => rp.age < 60);
+      for (const rp of ripples) {
+        rp.age += 1;
+        const t = rp.age / 60;
+        ctx.strokeStyle = `rgba(${colB},${(1 - t) * 0.6})`;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(rp.x, rp.y, t * 220, 0, Math.PI * 2);
+        ctx.stroke();
       }
 
       ctx.lineWidth = 1;
@@ -129,6 +147,24 @@ export function HeroMotion() {
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
     };
+    const onDown = (e: PointerEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      if (x < 0 || y < 0 || x > rect.width || y > rect.height) return;
+      ripples.push({ x, y, age: 0 });
+      for (const p of particles) {
+        const dx = p.x - x;
+        const dy = p.y - y;
+        const d = Math.hypot(dx, dy);
+        if (d < 260 && d > 0.01) {
+          const f = (1 - d / 260) * 7;
+          p.ex += (dx / d) * f;
+          p.ey += (dy / d) * f;
+        }
+      }
+      start();
+    };
     const onLeave = () => {
       mouse.x = -9999;
       mouse.y = -9999;
@@ -155,6 +191,7 @@ export function HeroMotion() {
     ro.observe(canvas);
 
     window.addEventListener("pointermove", onPointer, { passive: true });
+    window.addEventListener("pointerdown", onDown, { passive: true });
     document.addEventListener("pointerleave", onLeave);
     document.addEventListener("visibilitychange", onVisibility);
 
@@ -163,6 +200,7 @@ export function HeroMotion() {
       io.disconnect();
       ro.disconnect();
       window.removeEventListener("pointermove", onPointer);
+      window.removeEventListener("pointerdown", onDown);
       document.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("visibilitychange", onVisibility);
     };

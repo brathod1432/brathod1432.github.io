@@ -21,6 +21,8 @@ import { HeroMotion } from "@/components/HeroMotion";
 import { HeroOrbit } from "@/components/HeroOrbit";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { CardGlow } from "@/components/CardGlow";
+import { CursorFx } from "@/components/CursorFx";
+import { PointerEffects } from "@/components/PointerEffects";
 import { TechMarquee } from "@/components/TechMarquee";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -118,12 +120,14 @@ function Hero() {
         <div className="mt-8 flex animate-fade-up flex-wrap items-center gap-3">
           <a
             href="#services"
+            data-magnetic
             className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
           >
             How I can help <ArrowIcon className="h-4 w-4" />
           </a>
           <a
             href="#contact"
+            data-magnetic
             className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-fg transition-colors hover:border-accent2"
           >
             <MailIcon className="h-4 w-4" /> Get in touch
@@ -179,7 +183,7 @@ function Services() {
             const Icon = serviceIcons[s.icon];
             return (
               <Reveal key={s.title} delay={i * 90}>
-                <div className="glow-card group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface2 hover:shadow-[0_20px_60px_-25px_rgba(124,92,255,0.5)]">
+                <div className="glow-card tilt-card group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface2 hover:shadow-[0_20px_60px_-25px_rgba(124,92,255,0.5)]">
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <span
                     aria-hidden="true"
@@ -277,6 +281,8 @@ export default function Home() {
     <>
       <ScrollProgress />
       <CardGlow />
+      <PointerEffects />
+      <CursorFx />
       <SiteNav />
       <main>
         <Hero />

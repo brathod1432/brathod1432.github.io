@@ -37,7 +37,7 @@ export function Impact() {
         <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-3">
           {metrics.map((m, i) => (
             <Reveal key={m.label} delay={i * 70}>
-              <div className="glow-card rounded-2xl border border-line bg-surface p-6 text-center transition-colors hover:border-accent/40">
+              <div className="glow-card tilt-card rounded-2xl border border-line bg-surface p-6 text-center transition-colors hover:border-accent/40">
                 <CountUp
                   value={m.value}
                   className="gradient-text block text-2xl font-extrabold sm:text-3xl"
